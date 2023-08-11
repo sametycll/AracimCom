@@ -1,8 +1,41 @@
-﻿
+﻿@using EntitiyLayer.Concrete
+@model List<Category>
+
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
+<h2>Kategori Listesi <a href="~/Admin/Category/AddCategory" class="btn btn-primary" style="float:right;">Yeni Kategori Ekle</a></h2>
 
-<h1>Burası Areas Admin controller view sayfasıdır.</h1>
+<table class="table table-bordered">
+<tr>
+    <th>#</th>
+    <th>Kategori Adı</th>
+    <th>Açıklama</th>
+    <th>Durum</th>
+    <th>Pasif Yap</th>
+    <th>Aktif Yap</th>
+    <th>Düzenle</th>
+   
+</tr>
+@foreach (var x in Model)
+{
+    <tr>
+            <td style="font-weight: bold;">@x.CategoryID</td>
+        <td>@x.CategoryName</td>
+        <td>@x.CategoryDescription</td>
+        @if(x.CategoryStatus==true){
+             <td style="background-color:green; color:white">@x.CategoryStatus</td>
+        }
+        else
+            {
+                      <td style="background-color:red; color:white">@x.CategoryStatus</td>
+            }
+        
+        <td><a href="~/Admin/Category/PassiveCategory/@x.CategoryID" class="btn btn-danger">Pasif Yap</a></td>
+        <td><a href="~/Admin/Category/ActiveCategory/@x.CategoryID" class="btn btn-success">Aktif Yap</a></td>
+        <td><a href="~/Admin/Category/UpdateCategory/@x.CategoryID" class="btn btn-warning">Düzenle</a></td>
+    </tr>   
+}
+ </table>
 

@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "hfllcVVi2AZPzhjgNfdEyZOEE2aSst8oXGjk3C/TdZyLgQ8TdxKbI9eHaKj8ttifS4YujaXe4BMrOECn6nmSvw==",
+  "dgSpecHash": "vmRmamZxDHtSznSCiATqtWdCchBNRCORpt/pr94MB/LLMs9u1EPSuPSEBKCmf1a+8oOvAn4Ls5XUe4mAd5ScTg==",
   "success": true,
   "projectFilePath": "C:\\Users\\samet\\OneDrive\\Belgeler\\C#\\AracimCom\\BusinessLayer\\BusinessLayer.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\samet\\.nuget\\packages\\fluentvalidation\\11.7.0\\fluentvalidation.11.7.0.nupkg.sha512",
+    "C:\\Users\\samet\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
+    "C:\\Users\\samet\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
     "C:\\Users\\samet\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\samet\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "C:\\Users\\samet\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
