@@ -43,5 +43,11 @@ namespace BusinessLayer.Concreate
         {
             _brandDal.Update(t);
         }
+
+        public List<Brand> GetCategoryForBrand()
+        {
+            return _brandDal.GetListCategoryForBrand();
+        }
+
     }
 }

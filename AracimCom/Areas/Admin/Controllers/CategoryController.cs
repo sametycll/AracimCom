@@ -44,12 +44,15 @@ namespace AracimCom.Areas.Admin.Controllers
             return View();
         }
 
+
+
         [HttpGet]
         public IActionResult UpdateCategory(int id)
         {
             var catValue = cm.GetById(id);
             return View(catValue);
         }
+
 
         [HttpPost]
         public IActionResult UpdateCategory(Category p)

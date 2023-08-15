@@ -1,0 +1,22 @@
+﻿@model EntitiyLayer.Concrete.Brand
+
+@{
+    ViewData["Title"] = "AddBrand";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Yeni Marka Ekle</h2>
+@using (Html.BeginForm("AddBrand", "Brand", FormMethod.Post))
+{
+    @Html.Label("Marka Adı")
+    @Html.TextBoxFor(x=>x.BrandName, new{@class="form-control"})
+    @Html.ValidationMessageFor(x=>x.BrandName,"" ,new {@class ="text-danger"})
+        <br />
+    @Html.Label("Kategori Seç")
+    @Html.DropDownListFor(x=>x.CategoryID,(List<SelectListItem>)ViewBag.cv, new{@class="form-control"})
+  
+        <br />
+        <button class="btn btn-info">Markayı Kaydet</button>
+
+}
+
