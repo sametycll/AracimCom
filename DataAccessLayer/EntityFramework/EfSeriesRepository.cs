@@ -1,6 +1,8 @@
 ﻿using DataAccessLayer.Abstract;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.Repositories;
 using EntitiyLayer.Concrete;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +11,14 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.EntityFramework
 {
-    public class EfSeriesRepository:GenericRepository<Series>,ISeriesDal
+    public class EfSeriesRepository : GenericRepository<Series>, ISeriesDal
     {
+        public List<Series> GetListBrandForSeries()
+        {
+            using (var c = new Context())
+            {
+                return c.Seriess.Include(x => x.Brand).ToList();
+            }
+        }
     }
 }

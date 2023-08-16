@@ -1,0 +1,24 @@
+﻿@model EntitiyLayer.Concrete.Series
+@{
+    ViewData["Title"] = "UpdateSeries";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Seri Güncelleme</h2>
+@using (Html.BeginForm("UpdateSeries", "Series", FormMethod.Post))
+{
+    @Html.Label("Seri ID")
+    @Html.TextBoxFor(x=>x.SeriesID, new{@class="form-control", @readonly = true})
+
+    @Html.Label("Seri Adı")
+    @Html.TextBoxFor(x=>x.SeriesName, new{@class="form-control"})
+    @Html.ValidationMessageFor(x=>x.SeriesName,"" ,new {@class ="text-danger"})
+                <br />
+    @Html.Label("Marka")
+    @Html.DropDownListFor(x=>x.BrandID,(List<SelectListItem>)ViewBag.bv, new{@class="form-control"})
+
+     <br />
+     <button class="btn btn-success">Seriyi Güncelle</button>
+
+}
+

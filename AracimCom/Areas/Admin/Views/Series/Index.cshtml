@@ -1,0 +1,44 @@
+﻿@using EntitiyLayer.Concrete
+@model List<Series>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Seri Listesi <a href="~/Admin/Series/AddSeries" class="btn btn-primary" style="float:right;">Yeni Seri Ekle</a></h2>
+
+<table class="table table-bordered">
+<tr>
+    <th>#</th>
+    <th>Seri Adı</th>
+    <th>Markası</th>
+    <th>Kategorisi</th>
+    <th>Durum</th>
+    <th>Pasif Yap</th>
+    <th>Aktif Yap</th>
+    <th>Düzenle</th>
+
+</tr>
+    @foreach (var x in Model)
+    {
+                <tr>
+                <td style="font-weight: bold;">@x.SeriesID</td>
+                <td>@x.SeriesName</td>
+                <td>@x.Brand.BrandName</td>
+                <td>Kategorisi</td>
+            @if (x.SeriesStatus == true)
+            {
+                     <td style="background-color:green; color:white">@x.SeriesStatus</td>
+            }
+            else
+            {
+                    <td style="background-color:red; color:white">@x.SeriesStatus</td>
+            }
+
+      <td><a href="~/Admin/Series/PassiveSeries/@x.SeriesID" class="btn btn-danger">Pasif Yap</a></td>
+       <td><a href="~/Admin/Series/ActiveSeries/@x.SeriesID" class="btn btn-success">Aktif Yap</a></td>
+       <td><a href="~/Admin/Series/UpdateSeries/@x.SeriesID" class="btn btn-warning">Düzenle</a></td>
+     </tr>   
+    }
+ </table>
+

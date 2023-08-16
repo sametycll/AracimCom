@@ -1,0 +1,21 @@
+﻿@model EntitiyLayer.Concrete.Series
+@{
+    ViewData["Title"] = "AddSeries";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Yeni Seri Ekle</h2>
+@using (Html.BeginForm("AddSeries", "Series", FormMethod.Post))
+{
+    @Html.Label("Seri Adı")
+    @Html.TextBoxFor(x=>x.SeriesName, new{@class="form-control"})
+    @Html.ValidationMessageFor(x=>x.SeriesName,"" ,new {@class ="text-danger"})
+            <br />
+    @Html.Label("Marka Seç")
+    @Html.DropDownListFor(x=>x.BrandID,(List<SelectListItem>)ViewBag.bv, new{@class="form-control"})
+
+     <br />
+  <button class="btn btn-info">Seriyi Kaydet</button>
+
+}
+

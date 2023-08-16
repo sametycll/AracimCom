@@ -41,5 +41,14 @@ namespace BusinessLayer.Concreate
         {
             _seriesDal.Update(t);
         }
+
+        public List<Series> GetBrandForSeries()
+        {
+            return _seriesDal.GetListBrandForSeries();
+        }
+
+
+
+
     }
 }

@@ -9,5 +9,6 @@ namespace DataAccessLayer.Abstract
 {
     public interface ISeriesDal : IGenericDal<Series>
     {
+        List<Series> GetListBrandForSeries();
     }
 }

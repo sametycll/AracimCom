@@ -27,13 +27,13 @@ namespace AracimCom.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult AddBrand()
         {
-            List<SelectListItem> brandValues = (from x in cm.GetListAll()
+            List<SelectListItem> categoryValues = (from x in cm.GetListAll()
                                                    select new SelectListItem
                                                    {
                                                        Text = x.CategoryName,
                                                        Value = x.CategoryID.ToString()
                                                    }).ToList();
-            ViewBag.cv = brandValues;
+            ViewBag.cv = categoryValues;
             return View();
         }
 
