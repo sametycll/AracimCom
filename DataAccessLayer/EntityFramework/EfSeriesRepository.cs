@@ -13,6 +13,14 @@ namespace DataAccessLayer.EntityFramework
 {
     public class EfSeriesRepository : GenericRepository<Series>, ISeriesDal
     {
+        public List<Series> ListBrandWithCategory()
+        {
+            using (var c = new Context())
+            {
+                return c.Seriess.Include(x => x.Brand.Category).ToList();
+            }
+        }
+
         public List<Series> GetListBrandForSeries()
         {
             using (var c = new Context())
@@ -20,11 +28,12 @@ namespace DataAccessLayer.EntityFramework
                 return c.Seriess.Include(x => x.Brand).ToList();
             }
         }
-        public List<Series> ListBrandWithCategory()
+
+        public List<Series> LoadBra(int id)
         {
             using (var c = new Context())
             {
-                return c.Seriess.Include(x => x.Brand.Category).ToList();
+                return c.Seriess.Where(x => x.BrandID == id).ToList();
             }
         }
     }

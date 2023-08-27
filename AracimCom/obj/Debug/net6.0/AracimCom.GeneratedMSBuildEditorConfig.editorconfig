@@ -39,6 +39,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcVXBkYXRlQ2F0ZWdvcnkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/samet/OneDrive/Belgeler/C\#/AracimCom/AracimCom/Areas/Admin/Views/Model/AddModel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTW9kZWxcQWRkTW9kZWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samet/OneDrive/Belgeler/C\#/AracimCom/AracimCom/Areas/Admin/Views/Model/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTW9kZWxcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samet/OneDrive/Belgeler/C\#/AracimCom/AracimCom/Areas/Admin/Views/Model/UpdateModel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTW9kZWxcVXBkYXRlTW9kZWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/samet/OneDrive/Belgeler/C\#/AracimCom/AracimCom/Areas/Admin/Views/Series/AddSeries.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2VyaWVzXEFkZFNlcmllcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

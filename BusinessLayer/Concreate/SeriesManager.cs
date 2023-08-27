@@ -52,5 +52,10 @@ namespace BusinessLayer.Concreate
             return _seriesDal.ListBrandWithCategory();
         }
 
+        public List<Series> LoadBrand(int id)
+        {
+            return _seriesDal.LoadBra(id);
+        }
+
     }
 }

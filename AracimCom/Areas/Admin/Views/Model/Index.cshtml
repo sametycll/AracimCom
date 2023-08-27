@@ -1,0 +1,48 @@
+﻿@using EntitiyLayer.Concrete
+@model List<Model>
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Model Listesi <a href="~/Admin/Model/AddModel" class="btn btn-primary" style="float:right;">Yeni Model Ekle</a></h2>
+
+<table class="table table-bordered">
+<tr>
+    <th>#</th>
+    <th>Model Adı</th>
+    <th>Serisi</th>
+    <th>Markası</th>
+    <th>Kategorisi</th>
+    <th>Durum</th>
+    <th>Pasif Yap</th>
+    <th>Aktif Yap</th>
+    <th>Düzenle</th>
+
+</tr>
+    @foreach (var x in Model)
+    {
+          <tr>
+           <td style="font-weight: bold;">@x.ModelID</td>
+          <td>@x.ModelName</td>
+          <td>@x.Series.SeriesName</td>
+          <td>@x.Series.Brand.BrandName</td>     
+          <td>@x.Series.Brand.Category.CategoryName</td>
+            @if (x.ModelStatus == true)
+            {
+                             <td style="background-color:green; color:white">@x.ModelStatus</td>
+            }
+            else
+            {
+                            <td style="background-color:red; color:white">@x.ModelStatus</td>
+            }
+
+             <td><a href="~/Admin/Model/PassiveModel/@x.ModelID" class="btn btn-danger">Pasif Yap</a></td>
+              <td><a href="~/Admin/Model/ActiveModel/@x.ModelID" class="btn btn-success">Aktif Yap</a></td>
+             <td><a href="~/Admin/Model/UpdateModel/@x.ModelID" class="btn btn-warning">Düzenle</a></td>
+         </tr>   
+    }
+ </table>
+

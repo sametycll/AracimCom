@@ -117,7 +117,7 @@ namespace AracimCom.Areas.Admin.Controllers
             x.SeriesStatus = true;
             sm.TUpdate(x);
             return RedirectToAction("Index", "Series");
-        }
+        }        
 
     }
 }

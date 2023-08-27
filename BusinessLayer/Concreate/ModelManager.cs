@@ -43,5 +43,22 @@ namespace BusinessLayer.Concreate
         {
             _modelDal.Update(t);
         }
+
+        public List<Model> GetListModelWithCategory()
+        {
+            return _modelDal.ListModelWithCategory();
+        }
+
+        public List<Model> GetListModelWithBrand()
+        {
+            return _modelDal.ListModelWithBrand();
+        }
+
+        public List<Model> GetListModelWithSeries()
+        {
+            return _modelDal.ListModelWithSeries();
+        }
+
+
     }
 }

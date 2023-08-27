@@ -1,0 +1,110 @@
+﻿@model EntitiyLayer.Concrete.Model
+
+
+@{
+    ViewData["Title"] = "AddSeries";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<a href="~/lib/jquery/dist/jquery.min.map"></a>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+
+<h2>Yeni Model Ekle</h2>
+@using (Html.BeginForm("AddModel", "Model", FormMethod.Post))
+{
+    @Html.Label("Model Adı")
+    @Html.TextBoxFor(x=>x.ModelName, new{@class="form-control"})
+    @Html.ValidationMessageFor(x=>x.ModelName,"" ,new {@class ="text-danger"})
+    <br />
+
+    @Html.Label("Kategori Seç")
+    @Html.DropDownListFor(x=>x.Series,(List<SelectListItem>)ViewBag.cv,"~Lütfen Seçiniz~", new{@id="cat",@class="form-control"})
+    <br />
+
+    @Html.Label("Marka Seç")
+    @Html.DropDownListFor(x=>x.Series,(List<SelectListItem>)ViewBag.bv,"~Lütfen Seçiniz~", new{@class="form-control"})   
+    <br />
+
+    @Html.Label("Seri Seç")
+    @Html.DropDownListFor(x=>x.SeriesID,(List<SelectListItem>)ViewBag.sv,"~Lütfen Seçiniz~", new{@class="form-control"})   
+                 <br />
+          <button class="btn btn-info" >Model Kaydet</button>
+
+}
+
+<script>
+
+    var ctg = $("#cat");
+
+    if( ctg.id == undefined){    
+     $("#Series option").not(":first").remove();
+      $("#SeriesID option").not(":first").remove();
+    }
+
+    $("#cat").change(function () {
+        var ddlCategory= $(this);
+        var categoryID= ddlCategory.val();
+
+        if(categoryID != ""){
+
+            $("#Series option").not(":first").remove();
+             $("#SeriesID option").not(":first").remove();
+
+            $.ajax({
+                method:"GET",
+                url:'@Url.Action("LoadBrand")' + '/' + categoryID        
+            }).done(function (result) {               
+
+                var ddlBrand= $("#Series");
+
+                for (var i=0; i<result.length;i++){                
+
+                    var brand = result[i];          
+
+                    $("#Series").append('<option value="' + result[i].brandID +'">'+result[i].brandName+'</option>');
+                }
+
+            });           
+
+
+        }
+        else{            
+            $("#Series option").not(":first").remove();
+             $("#SeriesID option").not(":first").remove();
+        }         
+    });
+
+     $("#Series").change(function () {
+             var ddlBrand= $(this);
+             var brandID= ddlBrand.val();
+
+             if(brandID != ""){
+                 $("#SeriesID option").not(":first").remove();
+
+                 $.ajax({
+                method:"GET",
+                url:'@Url.Action("LoadSeries")' + '/' + brandID        
+            }).done(function (result) {               
+
+                var ddlBrand= $("#SeriesID");
+
+                for (var i=0; i<result.length;i++){                
+
+                    var brand = result[i];          
+
+                    $("#SeriesID").append('<option value="' + result[i].seriesID +'">'+result[i].seriesName+'</option>');
+                }
+
+             });     
+
+             }
+             else{                
+                 $("#SeriesID option").not(":first").remove();
+             }
+     });
+
+
+
+</script>
+

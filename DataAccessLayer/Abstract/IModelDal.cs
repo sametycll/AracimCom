@@ -9,5 +9,9 @@ namespace DataAccessLayer.Abstract
 {
     public interface IModelDal : IGenericDal<Model>
     {
+        public List<Model> ListModelWithCategory();
+        public List<Model> ListModelWithBrand();
+        public List<Model> ListModelWithSeries();
+
     }
 }

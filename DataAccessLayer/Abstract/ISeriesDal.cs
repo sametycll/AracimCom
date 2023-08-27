@@ -11,6 +11,9 @@ namespace DataAccessLayer.Abstract
     {
         List<Series> GetListBrandForSeries();
         List<Series> ListBrandWithCategory();
-       
+
+        public List<Series> LoadBra(int id);
+
+
     }
 }
