@@ -10,5 +10,8 @@ namespace DataAccessLayer.Abstract
     public interface IBrandDal : IGenericDal<Brand>
     {
         List<Brand> GetListCategoryForBrand();
+        List<Brand> LoadCat(int id);
+
+
     }
 }

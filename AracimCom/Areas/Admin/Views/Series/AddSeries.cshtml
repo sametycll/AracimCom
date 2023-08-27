@@ -1,8 +1,14 @@
 ﻿@model EntitiyLayer.Concrete.Series
+
+
 @{
     ViewData["Title"] = "AddSeries";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
+
+<a href="~/lib/jquery/dist/jquery.min.map"></a>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
 
 <h2>Yeni Seri Ekle</h2>
 @using (Html.BeginForm("AddSeries", "Series", FormMethod.Post))
@@ -11,11 +17,53 @@
     @Html.TextBoxFor(x=>x.SeriesName, new{@class="form-control"})
     @Html.ValidationMessageFor(x=>x.SeriesName,"" ,new {@class ="text-danger"})
             <br />
+    @Html.Label("Kategori Seç")
+    @Html.DropDownListFor(x=>x.Brand,(List<SelectListItem>)ViewBag.cv,"~Lütfen Seçiniz~", new{@class="form-control"})
+    
+         <br />
     @Html.Label("Marka Seç")
-    @Html.DropDownListFor(x=>x.BrandID,(List<SelectListItem>)ViewBag.bv, new{@class="form-control"})
-
+    @Html.DropDownListFor(x=>x.BrandID,(List<SelectListItem>)ViewBag.bv,"~Lütfen Seçiniz~", new{@class="form-control"})   
      <br />
-  <button class="btn btn-info">Seriyi Kaydet</button>
+  <button class="btn btn-info" >Seriyi Kaydet</button>
 
 }
+
+<script>
+   
+    var a = $("#Brand");
+
+    if( a.id == undefined){    
+     $("#BrandID option").not(":first").remove();
+    }
+
+    $("#Brand").change(function () {
+        var ddlCategory= $(this);
+        var categoryID= ddlCategory.val();
+
+        if(categoryID != ""){
+
+            $("#BrandID option").not(":first").remove();
+
+            $.ajax({
+                method:"GET",
+                url:'@Url.Action("LoadBrand")' + '/' + categoryID        
+            }).done(function (result) {               
+
+                var ddlBrand= $("#BrandID");
+
+                for (var i=0; i<result.length;i++){                
+
+                    var brand = result[i];          
+
+                    $("#BrandID").append('<option value="' + result[i].brandID +'">'+result[i].brandName+'</option>');
+                }
+
+            });
+        }
+        else{
+            console.log("else icindeyim");
+            $("#BrandID option").not(":first").remove();
+        }
+    });
+</script>
 

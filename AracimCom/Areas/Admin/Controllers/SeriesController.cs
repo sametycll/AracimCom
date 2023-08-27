@@ -1,10 +1,12 @@
 ﻿using BusinessLayer.Concreate;
 using BusinessLayer.ValidationRules;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntitiyLayer.Concrete;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Newtonsoft.Json;
 
 namespace AracimCom.Areas.Admin.Controllers
 {
@@ -13,12 +15,13 @@ namespace AracimCom.Areas.Admin.Controllers
     {
         SeriesManager sm = new SeriesManager(new EfSeriesRepository());
         BrandManager bm = new BrandManager(new EfBrandRepository());
+        CategoryManager cm = new CategoryManager(new EfCategoryRepository());
 
         public IActionResult Index()
         {
             var values = sm.GetListAll();
             values = sm.GetBrandForSeries();
-           // values = bm.GetCategoryForBrand();
+            values = sm.GetListBrandWithCategory();
             return View(values);
         }
 
@@ -32,7 +35,16 @@ namespace AracimCom.Areas.Admin.Controllers
                                                     Text = x.BrandName,
                                                     Value = x.BrandID.ToString()
                                                 }).ToList();
-            ViewBag.bv = brandValues;
+
+            List<SelectListItem> categoryValues = (from x in cm.GetListAll()
+                                                   select new SelectListItem
+                                                   {
+                                                       Text = x.CategoryName,
+                                                       Value = x.CategoryID.ToString()
+                                                   }).ToList();
+            ViewBag.cv = categoryValues;
+            ViewBag.bv = brandValues;           
+
             return View();
 
         }
@@ -57,6 +69,14 @@ namespace AracimCom.Areas.Admin.Controllers
             }
             return View();
         }
+
+        //For Cascading
+        public JsonResult LoadBrand(int id)
+        {
+            var brand = bm.LoadCategory(id);           
+            return Json(brand);
+        }
+         
 
         [HttpGet]
         public IActionResult UpdateSeries(int id)
@@ -98,8 +118,6 @@ namespace AracimCom.Areas.Admin.Controllers
             sm.TUpdate(x);
             return RedirectToAction("Index", "Series");
         }
-
-
 
     }
 }

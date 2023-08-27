@@ -25,7 +25,7 @@
                 <td style="font-weight: bold;">@x.SeriesID</td>
                 <td>@x.SeriesName</td>
                 <td>@x.Brand.BrandName</td>
-                <td>Kategorisi</td>
+                <td>@x.Brand.Category.CategoryName</td>
             @if (x.SeriesStatus == true)
             {
                      <td style="background-color:green; color:white">@x.SeriesStatus</td>

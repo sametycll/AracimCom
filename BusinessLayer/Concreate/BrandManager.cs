@@ -49,5 +49,9 @@ namespace BusinessLayer.Concreate
             return _brandDal.GetListCategoryForBrand();
         }
 
+        public List<Brand> LoadCategory(int id)
+        {
+            return _brandDal.LoadCat(id);
+        }
     }
 }

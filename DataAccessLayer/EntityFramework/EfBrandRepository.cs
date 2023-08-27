@@ -20,5 +20,13 @@ namespace DataAccessLayer.EntityFramework
                 return c.Brands.Include(x=>x.Category).ToList();               
             }
         }
+
+        public List<Brand> LoadCat(int id)
+        {
+            using (var c = new Context())
+            {
+                return c.Brands.Where(x => x.CategoryID == id).ToList();
+            }
+        }
     }
 }

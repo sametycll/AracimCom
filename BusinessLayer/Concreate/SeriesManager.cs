@@ -47,8 +47,10 @@ namespace BusinessLayer.Concreate
             return _seriesDal.GetListBrandForSeries();
         }
 
-
-
+        public List<Series> GetListBrandWithCategory()
+        {
+            return _seriesDal.ListBrandWithCategory();
+        }
 
     }
 }
