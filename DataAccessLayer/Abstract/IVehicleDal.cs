@@ -9,5 +9,9 @@ namespace DataAccessLayer.Abstract
 {
     public interface IVehicleDal:IGenericDal<Vehicle>
     {
+        public List<Vehicle> ListVehicleWithCategory();
+        public List<Vehicle> ListVehicleWithBrand();
+        public List<Vehicle> ListVehicleWithSeries();
+        public List<Vehicle> ListVehicleWithModel();
     }
 }

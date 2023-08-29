@@ -38,5 +38,8 @@ namespace EntitiyLayer.Concrete
         public int ModelID { get; set; }
         public Model Model { get; set; }
 
+        public int UserID { get; set; }
+        public User User { get; set; }
+
     }
 }

@@ -141,8 +141,9 @@ namespace DataAccessLayer.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserPhone")
-                        .HasColumnType("int");
+                    b.Property<string>("UserPhone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("UserStatus")
                         .HasColumnType("bit");
@@ -161,6 +162,9 @@ namespace DataAccessLayer.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("VehicleID"), 1L, 1);
 
                     b.Property<int>("ModelID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserID")
                         .HasColumnType("int");
 
                     b.Property<int>("VehicleAd")
@@ -247,6 +251,8 @@ namespace DataAccessLayer.Migrations
 
                     b.HasIndex("ModelID");
 
+                    b.HasIndex("UserID");
+
                     b.ToTable("Vehicles");
                 });
 
@@ -291,7 +297,15 @@ namespace DataAccessLayer.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("EntitiyLayer.Concrete.User", "User")
+                        .WithMany("Vehicles")
+                        .HasForeignKey("UserID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Model");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("EntitiyLayer.Concrete.Brand", b =>
@@ -312,6 +326,11 @@ namespace DataAccessLayer.Migrations
             modelBuilder.Entity("EntitiyLayer.Concrete.Series", b =>
                 {
                     b.Navigation("Models");
+                });
+
+            modelBuilder.Entity("EntitiyLayer.Concrete.User", b =>
+                {
+                    b.Navigation("Vehicles");
                 });
 #pragma warning restore 612, 618
         }

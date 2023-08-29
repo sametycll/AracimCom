@@ -15,7 +15,8 @@ namespace EntitiyLayer.Concrete
         public string UserName { get; set; }
         public string UserMail { get; set; }
         public string UserPassword { get; set; }
-        public int UserPhone { get; set; }
+        public string UserPhone { get; set; }
         public bool UserStatus { get; set; }
+        public List<Vehicle> Vehicles { get; set; }
     }
 }

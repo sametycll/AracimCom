@@ -47,22 +47,22 @@ namespace BusinessLayer.Concreate
 
         public List<Vehicle> GetVehicleListWithBrand()
         {
-            throw new NotImplementedException();
+            return _vehicleDal.ListVehicleWithBrand();
         }
 
         public List<Vehicle> GetVehicleListWithCategory()
         {
-            throw new NotImplementedException();
+            return _vehicleDal.ListVehicleWithCategory();
         }
 
         public List<Vehicle> GetVehicleListWithModel()
         {
-            throw new NotImplementedException();
+            return _vehicleDal.ListVehicleWithModel();
         }
 
         public List<Vehicle> GetVehicleListWithSeries()
         {
-            throw new NotImplementedException();
+            return _vehicleDal.ListVehicleWithSeries();
         }
 
 
