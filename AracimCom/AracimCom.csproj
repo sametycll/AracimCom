@@ -37,7 +37,6 @@
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="ViewComponents\Category\" />
-    <Folder Include="Views\Shared\Components\CategoryList\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+  <!-- ** Basic Page Needs ** -->
+  <meta charset="utf-8">
+  <title>Aracim | ikinci el araç al-sat</title>
+
+  <!-- ** Mobile Specific Metas ** -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Agency HTML Template">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="author" content="Themefisher">
+  <meta name="generator" content="Themefisher Classified Marketplace Template v1.0">
+
+  <!-- favicon -->
+  <link href="~/Home/images/favicon.png" rel="shortcut icon">
+  <script src="https://kit.fontawesome.com/e8e59e0144.js" crossorigin="anonymous"></script>
+
+  <!-- 
+  Essential stylesheets
+  =====================================-->
+  <link href="~/Home/plugins/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <link href="~/Home/plugins/bootstrap/bootstrap-slider.css" rel="stylesheet">
+  <link href="~/Home/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="~/Home/plugins/slick/slick.css" rel="stylesheet">
+  <link href="~/Home/plugins/slick/slick-theme.css" rel="stylesheet">
+  <link href="~/Home/plugins/jquery-nice-select/css/nice-select.css" rel="stylesheet">
+  
+  <link href="~/Home/css/style.css" rel="stylesheet">
+
+</head>
+
+<body class="body-wrapper" style="background-color:#f7f7f7;">
+	<!-- Home Top Side -->
+	@await Component.InvokeAsync("HomeTopSide")
+
+<section class="section-xl">	
+	<br />
+	<div class="container">		
+		<div class="row">
+
+			<!-- left side - category -->
+			<div class="col-lg-3 col-md-4">
+
+				@await Component.InvokeAsync("HomeCategoryList")
+
+			</div>
+
+			   <!-- layout main side-right side -->
+				@RenderBody()
+
+
+
+
+		</div>
+	</div>
+</section>
+<!--============================
+=            Footer            =
+=============================-->
+		<!-- footer -->
+	@await Component.InvokeAsync("HomeFooter")
+
+<!-- 
+Essential Scripts
+=====================================-->
+<script src="~/Home/plugins/jquery/jquery.min.js"></script>
+<script src="~/Home/plugins/bootstrap/popper.min.js"></script>
+<script src="~/Home/plugins/bootstrap/bootstrap.min.js"></script>
+<script src="~/Home/plugins/bootstrap/bootstrap-slider.js"></script>
+<script src="~/Home/plugins/tether/js/tether.min.js"></script>
+<script src="~/Home/plugins/raty/jquery.raty-fa.js"></script>
+<script src="~/Home/plugins/slick/slick.min.js"></script>
+<script src="~/Home/plugins/jquery-nice-select/js/jquery.nice-select.min.js"></script>
+<!-- google map -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU" defer></script>
+<script src="~/Home/plugins/google-map/map.js" defer></script>
+
+<script src="~/Home/js/script.js"></script>
+
+</body>
+
+</html>
+
