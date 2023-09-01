@@ -13,5 +13,10 @@ namespace DataAccessLayer.Abstract
         public List<Vehicle> ListVehicleWithBrand();
         public List<Vehicle> ListVehicleWithSeries();
         public List<Vehicle> ListVehicleWithModel();
+        public Vehicle ByModel(int id);
+        public Vehicle BySeries(int id);
+        public Vehicle ByBrand(int id);
+        public Vehicle ByUser(int id);
+
     }
 }

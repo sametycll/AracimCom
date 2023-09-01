@@ -9,10 +9,6 @@ namespace BusinessLayer.Abstract
 {
     internal interface IVehicleService : IGenericService<Vehicle>
     {
-        List<Vehicle> GetVehicleListWithCategory();
-        List<Vehicle> GetVehicleListWithBrand();
-        List<Vehicle> GetVehicleListWithModel();
-        List<Vehicle> GetVehicleListWithSeries();
 
     }
 }

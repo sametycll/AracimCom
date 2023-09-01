@@ -4,6 +4,15 @@
     Layout = "~/Views/Shared/HomeLayout.cshtml";
 }
 
+
+			<!-- left side - category -->
+<div class="col-lg-3 col-md-4">
+
+	@await Component.InvokeAsync("HomeCategoryList")
+
+</div>
+
+
 <div class="col-lg-9 col-md-8">
 				
  <div class="product-grid-list">
@@ -16,13 +25,13 @@
 	<div class="card">
 		<div class="thumb-content">
 			<!-- <div class="price">$200</div> -->
-			<a href="">
-				<img class="card-img-top img-fluid" src="~/Home/images/products/products-1.jpg" alt="Card image cap">
+				<a href="~/Home/VehicleDetail/@x.VehicleID">
+				<img class="card-img-top img-fluid"  src="~/Home/images/products/products-1.jpg" alt="Card image cap">
 			</a>
 		</div>
 
 		<div class="card-body">
-		    <h1 class="card-title"><a href=""></a>@x.VehicleTitle.Substring(0,21)...</h1>
+							<h1 class="card-title"><a  href="~/Home/VehicleDetail/@x.VehicleID">@x.VehicleTitle.Substring(0,21)...</a></h1>
 			<hr/>
 
 				<ul class="list-inline product-meta">
