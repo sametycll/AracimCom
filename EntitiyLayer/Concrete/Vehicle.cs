@@ -29,7 +29,7 @@ namespace EntitiyLayer.Concrete
         public string VehicleExcangeable { get; set; }
         public string VehicleCity { get; set; }
         public string VehicleDistrict { get; set; }
-        public int VehicleAd { get; set; }
+        public string VehicleAd { get; set; }
         public DateTime VehicleAdDate { get; set; }
         public string VehicleThumbnailImage { get; set; }
         public string VehicleImage { get; set; }

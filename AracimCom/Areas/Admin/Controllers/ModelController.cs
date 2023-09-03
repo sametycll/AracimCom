@@ -18,10 +18,10 @@ namespace AracimCom.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-            var values = mm.GetListAll();
-            values = mm.GetListModelWithSeries();
-            values = mm.GetListModelWithBrand();
-            values = mm.GetListModelWithCategory();
+            //var values = mm.GetListAll();
+            //values = mm.GetListModelWithSeries();
+            //values = mm.GetListModelWithBrand();
+            var values = mm.GetListModelWithCategory();
 
 
             return View(values);

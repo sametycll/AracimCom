@@ -1,0 +1,41 @@
+﻿@model EntitiyLayer.Concrete.User
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/HomeLayout.cshtml";
+}
+
+<section class="login py-5 border-top-1">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-5 col-md-8 align-item-center">
+        <div class="border border">
+          <h1 class="bg-gray" style="text-align:center; font-weight:700; padding-top:7px;">Kayıt Ol</h1>
+                    @using (Html.BeginForm("AddUser", "Register", FormMethod.Post))
+                    {
+                    <fieldset class="p-4">
+                            @Html.Label("Adınız Soyadınız")
+                            @Html.TextBoxFor(x=>x.UserName,new{@class="form-control  mb-3"})
+                            @Html.ValidationMessageFor(x=>x.UserName,"" ,new {@class ="text-danger"})
+
+                            @Html.Label("Telefon Numaranız")
+                            @Html.TextBoxFor(x=>x.UserPhone,new{@class="form-control  mb-3"})
+                            @Html.ValidationMessageFor(x=>x.UserPhone,"" ,new {@class ="text-danger"})
+
+
+                            @Html.Label("Mail Adresiniz")
+                            @Html.TextBoxFor(x=>x.UserMail,new{@class="form-control  mb-3"})
+                            @Html.ValidationMessageFor(x=>x.UserMail,"" ,new {@class ="text-danger"})
+
+                            @Html.Label("Şifreniz")
+                            @Html.TextBoxFor(x=>x.UserPassword,new{@class="form-control  mb-3",@type="password"})
+                            @Html.ValidationMessageFor(x=>x.UserPassword,"" ,new {@class ="text-danger"})
+                      
+                      <button type="submit" class="btn btn-primary font-weight-bold mt-3">Kayıt Ol</button>
+                    </fieldset>
+                    }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

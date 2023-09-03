@@ -167,8 +167,9 @@ namespace DataAccessLayer.Migrations
                     b.Property<int>("UserID")
                         .HasColumnType("int");
 
-                    b.Property<int>("VehicleAd")
-                        .HasColumnType("int");
+                    b.Property<string>("VehicleAd")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("VehicleAdDate")
                         .HasColumnType("datetime2");

@@ -15,11 +15,11 @@ namespace AracimCom.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-            var values = vm.GetListAll();
-            values = vm.GetVehicleListWithModel();
-            values = vm.GetVehicleListWithSeries();
-            values = vm.GetVehicleListWithBrand();
-            values = vm.GetVehicleListWithCategory();
+            //var values = vm.GetListAll();
+            //values = vm.GetVehicleListWithModel();
+            //values = vm.GetVehicleListWithSeries();
+            //values = vm.GetVehicleListWithBrand();
+           var values = vm.GetVehicleListWithCategory();
             return View(values);
         }
     }

@@ -17,8 +17,8 @@ namespace AracimCom.Areas.Admin.Controllers
 
         public IActionResult Index()
         {
-            var values = bm.GetListAll();
-            values = bm.GetCategoryForBrand();
+            //var values = bm.GetListAll();
+            var values = bm.GetCategoryForBrand();
             return View(values);
         }
 
