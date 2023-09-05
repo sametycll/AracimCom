@@ -82,10 +82,17 @@ namespace BusinessLayer.Concreate
             return _vehicleDal.ByUser(id);
         }
 
-        public List<Vehicle> GetListVehicleWithCategoryUser(int id)
+        public Vehicle GetByCategory(int id) { 
+
+             return _vehicleDal.ByCategory(id);
+        }
+
+    public List<Vehicle> GetListVehicleWithCategoryUser(int id)
         {
             return _vehicleDal.ListVehicleWithCategoryUser(id);
         }
+
+      
 
     }
 }

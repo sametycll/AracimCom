@@ -109,9 +109,107 @@ namespace AracimCom.Areas.User.Controllers
             return Json(model);
         }
 
+
         public IActionResult DetailVehicle(int id) 
-        { 
-            return View(); 
+        {
+            var detailValue = vm.GetById(id);
+            ViewBag.model = vm.GetByModel(id).Model.ModelName;
+            ViewBag.series = vm.GetBySeries(id).Model.Series.SeriesName;
+            ViewBag.brand = vm.GetByBrand(id).Model.Series.Brand.BrandName;
+            ViewBag.category = vm.GetByCategory(id).Model.Series.Brand.Category.CategoryName;
+            return View(detailValue); 
+        }
+
+        [HttpGet]
+        public IActionResult UpdateVehicle(int id)
+        {
+            List<SelectListItem> categoryValues = (from x in cm.GetListAll()
+                                                   select new SelectListItem
+                                                   {
+                                                       Text = x.CategoryName,
+                                                       Value = x.CategoryID.ToString()
+                                                   }).ToList();
+
+            List<SelectListItem> brandValues = (from x in bm.GetListAll()
+                                                select new SelectListItem
+                                                {
+                                                    Text = x.BrandName,
+                                                    Value = x.BrandID.ToString()
+                                                }).ToList();
+
+            List<SelectListItem> seriesValues = (from x in sm.GetListAll()
+                                                 select new SelectListItem
+                                                 {
+                                                     Text = x.SeriesName,
+                                                     Value = x.SeriesID.ToString()
+                                                 }).ToList();
+            List<SelectListItem> modelValues = (from x in mm.GetListAll()
+                                                select new SelectListItem
+                                                {
+                                                    Text = x.ModelName,
+                                                    Value = x.ModelID.ToString()
+                                                }).ToList();
+            ViewBag.cv = categoryValues;
+            ViewBag.bv = brandValues;
+            ViewBag.sv = seriesValues;
+            ViewBag.mv = modelValues;
+            var values=vm.GetById(id);
+            return View(values);
+        }
+        [HttpPost]
+        public IActionResult UpdateVehicle(Vehicle p)
+        {
+            List<SelectListItem> modelValues = (from x in mm.GetListAll()
+                                                select new SelectListItem
+                                                {
+                                                    Text = x.ModelName,
+                                                    Value = x.ModelID.ToString()
+                                                }).ToList();
+            List<SelectListItem> categoryValues = (from x in cm.GetListAll()
+                                                   select new SelectListItem
+                                                   {
+                                                       Text = x.CategoryName,
+                                                       Value = x.CategoryID.ToString()
+                                                   }).ToList();
+
+            List<SelectListItem> brandValues = (from x in bm.GetListAll()
+                                                select new SelectListItem
+                                                {
+                                                    Text = x.BrandName,
+                                                    Value = x.BrandID.ToString()
+                                                }).ToList();
+
+            List<SelectListItem> seriesValues = (from x in sm.GetListAll()
+                                                 select new SelectListItem
+                                                 {
+                                                     Text = x.SeriesName,
+                                                     Value = x.SeriesID.ToString()
+                                                 }).ToList();
+
+            ViewBag.cv = categoryValues;
+            ViewBag.bv = brandValues;
+            ViewBag.sv = seriesValues;
+            ViewBag.mv = modelValues;
+            VehicleValidator vv = new VehicleValidator();
+            ValidationResult results = vv.Validate(p);
+            if (results.IsValid)
+            {
+                p.VehicleStatus = true;
+                p.VehicleAdDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+                p.VehicleAd = "12345678";
+                p.UserID = 1;                
+                vm.TUpdate(p);
+                return RedirectToAction("Index", "MyVehicle");
+            }
+            else
+            {
+                foreach (var item in results.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+            return View();
+            
         }
 
         public IActionResult DeleteVehicle(int id)
