@@ -12,6 +12,7 @@ namespace DataAccessLayer.Abstract
         public List<Model> ListModelWithCategory();
         public List<Model> ListModelWithBrand();
         public List<Model> ListModelWithSeries();
+        public List<Model> LoadSer(int id);
 
     }
 }

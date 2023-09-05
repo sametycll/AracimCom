@@ -1,9 +1,27 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Mvc.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+//authorization add
+builder.Services.AddMvc(config =>
+{
+    var policy = new AuthorizationPolicyBuilder()
+                    .RequireAuthenticatedUser()
+                    .Build();
+    config.Filters.Add(new AuthorizeFilter(policy));
+});
+
+builder.Services.AddMvc();
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(x =>
+{
+    x.LoginPath = "/Login/Index";
+});
 
 var app = builder.Build();
 
@@ -21,24 +39,37 @@ app.UseStatusCodePagesWithReExecute("/ErrorPage/Error1","?code={0}");
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+app.UseAuthentication();
 app.UseRouting();
 
 app.UseAuthorization();
 
-//app.MapControllerRoute(
-//    name: "default",
-//    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.UseEndpoints(endpoints =>
 {
-    endpoints.MapControllerRoute(
-        name: "Admin",
-        pattern: "Admin/{controller=Category}/{action=Index}/{id?}");
+  
+   
+        endpoints.MapControllerRoute(
+          name: "areas",
+          pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+        );
+    
+    //endpoints.MapControllerRoute(
+    //    name: "Admin",
+    //    pattern: "Admin/{controller=Category}/{action=Index}/{id?}");
 
 
-    endpoints.MapControllerRoute(
-         name: "areas",
-         pattern: "{area:exists}/{controller=Category}/{action=Index}/{id?}");
+    //endpoints.MapControllerRoute(
+    //     name: "areas",
+    //     pattern: "{area:exists}/{controller=Category}/{action=Index}/{id?}");
+
+    //endpoints.MapControllerRoute(
+    //   name: "User",
+    //   pattern: "User/{controller=MyVehicle}/{action=Index}/{id?}");
+
+    //endpoints.MapControllerRoute(
+    //    name: "areas",
+    //    pattern: "{area:exists}/{controller=MyVehicle}/{action=Index}/{id?}");
 
     endpoints.MapControllerRoute(
     name: "default",

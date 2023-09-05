@@ -59,6 +59,9 @@ namespace BusinessLayer.Concreate
             return _modelDal.ListModelWithSeries();
         }
 
-
+        public List<Model> LoadSeries(int id)
+        {
+            return _modelDal.LoadSer(id);
+        }
     }
 }

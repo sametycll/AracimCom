@@ -21,6 +21,15 @@ namespace DataAccessLayer.EntityFramework
             }
         }
 
+        public List<Vehicle> ListVehicleWithCategoryUser(int id)
+        {
+            using (var c = new Context())
+            {
+                return c.Vehicles.Include(x => x.Model.Series.Brand.Category).Where(x=>x.UserID == id).ToList();
+            }
+        }
+
+
         public List<Vehicle> ListVehicleWithBrand()
         {
             using (var c = new Context())

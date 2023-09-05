@@ -1,11 +1,13 @@
 ﻿using AracimCom.Models;
 using BusinessLayer.Concreate;
 using DataAccessLayer.EntityFramework;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 namespace AracimCom.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : Controller
     {
         VehicleManager vm = new VehicleManager(new EfVehicleRepository());

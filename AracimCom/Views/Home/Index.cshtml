@@ -31,7 +31,16 @@
 		</div>
 
 		<div class="card-body">
-							<h1 class="card-title"><a  href="~/Home/VehicleDetail/@x.VehicleID">@x.VehicleTitle.Substring(0,21)...</a></h1>
+							<h1 class="card-title">
+								<a  href="~/Home/VehicleDetail/@x.VehicleID">
+									@if(x.VehicleTitle.Length > 21)
+									{
+										@x.VehicleTitle.Substring(0,21);
+									}
+									else{
+												@x.VehicleTitle
+									}
+										</a></h1>
 			<hr/>
 
 				<ul class="list-inline product-meta">

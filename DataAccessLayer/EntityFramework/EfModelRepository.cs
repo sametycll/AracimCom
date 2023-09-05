@@ -38,7 +38,13 @@ namespace DataAccessLayer.EntityFramework
                 return c.Models.Include(x => x.Series).ToList();
             }
         }
-
+        public List<Model> LoadSer(int id)
+        {
+            using (var c = new Context())
+            {
+                return c.Models.Where(x => x.SeriesID == id).ToList();
+            }
+        }
 
 
     }

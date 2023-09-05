@@ -67,6 +67,34 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVmVoaWNsZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/samet/OneDrive/Belgeler/C\#/AracimCom/AracimCom/Areas/User/Views/MyVehicle/AddVehicle.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xNeVZlaGljbGVcQWRkVmVoaWNsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samet/OneDrive/Belgeler/C\#/AracimCom/AracimCom/Areas/User/Views/MyVehicle/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xNeVZlaGljbGVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samet/OneDrive/Belgeler/C\#/AracimCom/AracimCom/Areas/User/Views/Shared/Components/UserMessageNotification/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xTaGFyZWRcQ29tcG9uZW50c1xVc2VyTWVzc2FnZU5vdGlmaWNhdGlvblxEZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samet/OneDrive/Belgeler/C\#/AracimCom/AracimCom/Areas/User/Views/Shared/Components/UserNotification/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xTaGFyZWRcQ29tcG9uZW50c1xVc2VyTm90aWZpY2F0aW9uXERlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samet/OneDrive/Belgeler/C\#/AracimCom/AracimCom/Areas/User/Views/Shared/UserLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xTaGFyZWRcVXNlckxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samet/OneDrive/Belgeler/C\#/AracimCom/AracimCom/Areas/User/Views/UserFooterPartical.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xVc2VyRm9vdGVyUGFydGljYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samet/OneDrive/Belgeler/C\#/AracimCom/AracimCom/Areas/User/Views/UserNavbarPartical.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xVc2VyTmF2YmFyUGFydGljYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/samet/OneDrive/Belgeler/C\#/AracimCom/AracimCom/Views/Admin/AdminFooterPartical.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRtaW5Gb290ZXJQYXJ0aWNhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

@@ -1,0 +1,42 @@
+﻿@using EntitiyLayer.Concrete
+@model List<Vehicle>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/User/Views/Shared/UserLayout.cshtml";
+}
+
+<h2>Araç Listesi <a href="~/User/MyVehicle/AddVehicle" class="btn btn-primary" style="float:right;">Yeni Araç Ekle</a></h2>
+
+<table class="table table-bordered">
+<tr>
+    <th>#</th>
+    <th>Araç Başlığı</th>    
+    <th>Modeli</th>
+    <th>Serisi</th>
+    <th>Markası</th>
+    <th>Kategorisi</th>
+    <th>Eklenme Tarihi</th>
+    <th>Detaylar</th>   
+    <th>Düzenle</th>    
+    <th>Sil</th>
+
+</tr>
+    @foreach (var x in Model)
+    {
+                  <tr>
+                   <td style="font-weight: bold;">@x.VehicleID</td>
+                  <td>@x.VehicleTitle</td>
+                  <td>@x.Model.ModelName</td>
+                  <td>@x.Model.Series.SeriesName</td>
+                  <td>@x.Model.Series.Brand.BrandName</td>     
+                  <td>@x.Model.Series.Brand.Category.CategoryName</td>      
+                  <td>@(((DateTime)x.VehicleAdDate).ToString("dd MMMMM yyyy"))</td>
+                  <td><a href="~/User/MyVehicle/DetailVehicle/@x.VehicleID" class="btn btn-info">Detaylar</a></td>              
+                  <td><a href="~/User/MyVehicle/UpdateVehicle/@x.VehicleID" class="btn btn-warning">Düzenle</a></td>
+                  <td><a href="~/User/MyVehicle/DeleteVehicle/@x.VehicleID" class="btn btn-danger">Sil</a></td>
+                 </tr>   
+    }
+ </table>
+
+
+

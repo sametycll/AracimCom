@@ -8,10 +8,10 @@ namespace AracimCom.Areas.Admin.Controllers
     public class VehicleController : Controller
     {
         VehicleManager vm = new VehicleManager(new EfVehicleRepository());
-        ModelManager mm = new ModelManager(new EfModelRepository());
-        SeriesManager sm = new SeriesManager(new EfSeriesRepository());
-        BrandManager bm = new BrandManager(new EfBrandRepository());
-        CategoryManager cm = new CategoryManager(new EfCategoryRepository());
+        //ModelManager mm = new ModelManager(new EfModelRepository());
+        //SeriesManager sm = new SeriesManager(new EfSeriesRepository());
+        //BrandManager bm = new BrandManager(new EfBrandRepository());
+        //CategoryManager cm = new CategoryManager(new EfCategoryRepository());
 
         public IActionResult Index()
         {
