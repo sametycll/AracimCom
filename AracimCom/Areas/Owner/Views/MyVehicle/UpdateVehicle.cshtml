@@ -1,0 +1,211 @@
+﻿@model EntitiyLayer.Concrete.Vehicle
+@{
+    ViewData["Title"] = "UpdateVehicle";
+    Layout = "~/Areas/Owner/Views/Shared/OwnerLayout.cshtml";
+}
+
+<a href="~/lib/jquery/dist/jquery.min.map"></a>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+
+
+<h2>Aracı Düzenle</h2>
+@using (Html.BeginForm("UpdateVehicle", "MyVehicle", FormMethod.Post))
+{
+    @Html.Label("Araç ID")
+    @Html.TextBoxFor(x=>x.VehicleID, new{@class="form-control", @readonly = true})
+
+    @Html.Label("İlan Başlığı")
+    @Html.TextBoxFor(x=>x.VehicleTitle, new{@class="form-control"})
+    @Html.ValidationMessageFor(x=>x.VehicleTitle,"" ,new {@class ="text-danger"})
+            <br />
+    @Html.Label("İlan Açıklaması")
+    @Html.TextAreaFor(x=>x.VehicleDescription,10,3, new{@class="form-control"})
+             <br />
+
+    @Html.Label("Kategori Seç")
+    @Html.DropDownListFor(x=>x.Model,(List<SelectListItem>)ViewBag.cv, new{@id="category",@class="form-control"})
+            <br />
+
+    @Html.Label("Marka Seç")
+    @Html.DropDownListFor(x=>x.Model,(List<SelectListItem>)ViewBag.bv, new{@id="brand",@class="form-control"})   
+            <br />
+           
+    @Html.Label("Seri Seç")
+    @Html.DropDownListFor(x=>x.Model,(List<SelectListItem>)ViewBag.sv,new{@id="series",@class="form-control"})   
+                         <br />
+
+    @Html.Label("Model Seç")
+    @Html.DropDownListFor(x=>x.ModelID,(List<SelectListItem>)ViewBag.mv, new{@id="model",@class="form-control"})
+                    <br/>
+
+
+    @Html.Label("Fiyat")
+    @Html.TextBoxFor(x=>x.VehiclePrice, new{@class="form-control"})
+                 <br />
+    @Html.Label("İl")
+    @Html.TextBoxFor(x=>x.VehicleCity, new{@class="form-control"})
+                 <br />
+    @Html.Label("İlçe")
+    @Html.TextBoxFor(x=>x.VehicleDistrict, new{@class="form-control"})
+                 <br />
+    @Html.Label("Renk")
+    @Html.TextBoxFor(x=>x.VehicleColor, new{@class="form-control"})
+                     <br />
+    @Html.Label("KM")
+    @Html.TextBoxFor(x=>x.VehicleKm, new{@class="form-control"})
+                     <br />
+    @Html.Label("Araç Yılı")
+    @Html.TextBoxFor(x=>x.VehicleYear, new{@class="form-control"})
+                 <br />    
+    @Html.Label("Yakıt Türü")
+    @Html.TextBoxFor(x=>x.VehicleFuel, new{@class="form-control"})
+                 <br />
+    @Html.Label("Vites Türü")
+    @Html.TextBoxFor(x=>x.VehicleGear, new{@class="form-control"})
+                 <br />
+
+    @Html.Label("Araç Tipi")
+    @Html.TextBoxFor(x=>x.VehicleBodyType, new{@class="form-control"})
+                 <br />
+    @Html.Label("Motor Gücü")
+    @Html.TextBoxFor(x=>x.VehicleEnginePower, new{@class="form-control"})
+                 <br />
+    @Html.Label("Motor Hacmi")
+    @Html.TextBoxFor(x=>x.VehicleEngineCapacity, new{@class="form-control"})
+                 <br />
+    @Html.Label("Çekiş Türü")
+    @Html.TextBoxFor(x=>x.VehicleWheelDrive, new{@class="form-control"})
+                 <br />
+    @Html.Label("Garanti")
+    @Html.TextBoxFor(x=>x.VehicleWarranty, new{@class="form-control"})
+                 <br />
+    @Html.Label("Kimden")
+    @Html.TextBoxFor(x=>x.VehicleFrom, new{@class="form-control"})
+                 <br />
+    @Html.Label("Takas")
+    @Html.TextBoxFor(x=>x.VehicleExcangeable, new{@class="form-control"})
+                 <br />
+    @Html.Label("Araç Fotoğrafı")
+    @Html.TextBoxFor(x=>x.VehicleImage, new{@class="form-control"})
+                     <br />
+    @Html.Label("Araç Vitrin Fotoğrafı")
+    @Html.TextBoxFor(x=>x.VehicleThumbnailImage, new{@class="form-control"})
+                         <br />
+
+
+                  <button class="btn btn-info" >Aracımı Düzenle</button> 
+}
+<br/>
+
+
+<script>
+
+    var ctg = $("#category");
+
+    if( ctg.id == undefined){    
+     $("#brand option").not(":first").remove();
+      $("#series option").not(":first").remove();
+      $("#model option").not(":first").remove();
+    }
+    //category - brand
+    $("#category").change(function () {
+        var ddlCategory= $(this);
+        var categoryID= ddlCategory.val();
+
+        if(categoryID != ""){
+
+            $("#brand option").not(":first").remove();
+             $("#series option").not(":first").remove();
+             $("#model option").not(":first").remove();
+
+            $.ajax({
+                method:"GET",
+                url:'@Url.Action("LoadBrand")' + '/' + categoryID        
+            }).done(function (result) {               
+
+                var ddlBrand= $("#brand");
+
+                for (var i=0; i<result.length;i++){                
+
+                    var brand = result[i];          
+
+                    $("#brand").append('<option value="' + result[i].brandID +'">'+result[i].brandName+'</option>');
+                }
+
+            });           
+
+
+        }
+        else{            
+            $("#brand option").not(":first").remove();
+             $("#series option").not(":first").remove();
+             $("#model option").not(":first").remove();
+        }         
+    });
+
+    //brand -series
+     $("#brand").change(function () {
+             var ddlBrand= $(this);
+             var brandID= ddlBrand.val();
+
+             if(brandID != ""){
+                 $("#series option").not(":first").remove();
+                 $("#model option").not(":first").remove();
+
+                 $.ajax({
+                method:"GET",
+                url:'@Url.Action("LoadSeries")' + '/' + brandID        
+            }).done(function (result) {               
+
+                var ddlBrand= $("#series");
+
+                for (var i=0; i<result.length;i++){                
+
+                    var brand = result[i];          
+
+                    $("#series").append('<option value="' + result[i].seriesID +'">'+result[i].seriesName+'</option>');
+                }
+
+             });     
+
+             }
+             else{                
+                 $("#series option").not(":first").remove();
+                 $("#model option").not(":first").remove();
+             }
+     });
+
+     //series - model
+     $("#series").change(function () {
+             var ddlSeries= $(this);
+             var seriesID= ddlSeries.val();
+
+             if(seriesID != ""){
+                 $("#model option").not(":first").remove();
+
+                 $.ajax({
+                method:"GET",
+                url:'@Url.Action("LoadModel")' + '/' + seriesID        
+            }).done(function (result) {               
+
+                var ddlBrand= $("#model");
+
+                for (var i=0; i<result.length;i++){                
+
+                    var brand = result[i];          
+
+                    $("#model").append('<option value="' + result[i].modelID +'">'+result[i].modelName+'</option>');
+                }
+
+             });     
+
+             }
+             else{                
+                 $("#model option").not(":first").remove();
+             }
+     });
+
+
+
+</script>

@@ -1,0 +1,28 @@
+﻿@model EntitiyLayer.Concrete.User
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Owner/Views/Shared/OwnerLayout.cshtml";
+}
+@using (Html.BeginForm("Index", "Profile", FormMethod.Post))
+{
+    @Html.HiddenFor(x=>x.UserID, new{@class="form-control", @readonly = true})
+
+    @Html.Label("Ad Soyad")
+    @Html.TextBoxFor(x=>x.UserName, new{@class="form-control"})
+    @Html.ValidationMessageFor(x=>x.UserName,"" ,new {@class ="text-danger"})
+    <br/>
+    @Html.Label("Telefon")
+    @Html.TextBoxFor(x=>x.UserPhone, new{@class="form-control"})
+        <br/>
+    @Html.Label("Mail")
+    @Html.TextBoxFor(x=>x.UserMail, new{@class="form-control"})
+    <br/>
+    @Html.Label("Şifre")
+    @Html.TextBoxFor(x=>x.UserPassword, new{@class="form-control"})
+        <br/>
+
+           <button class="btn btn-info" >Bilgilerimi Düzenle</button> 
+
+}
+ <br/>
+

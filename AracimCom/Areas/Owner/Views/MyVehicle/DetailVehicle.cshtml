@@ -1,0 +1,177 @@
+﻿@model EntitiyLayer.Concrete.Vehicle
+@{
+    ViewData["Title"] = "DetailVehicle";
+    Layout = "~/Areas/Owner/Views/Shared/OwnerLayout.cshtml";
+}
+
+ <!-- Content Wrapper. Contains page content -->
+
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>@Model.VehicleTitle</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="~/Owner/MyVehicle/Index">Araçlarım</a></li>
+              <li class="breadcrumb-item active">Araç Detay</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+      <!-- Default box -->
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title" style="color:red; font-style: italic;">#@Model.VehicleAd</h2>
+
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="" title="Collapse">
+              <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-card-widget="" title="Remove">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+
+
+        <div class="card-body">
+          <div class="row">
+
+            <div class="col-12 col-md-12 col-lg-8 order-2 order-md-1">
+              <div class="row">
+
+                <div class="col-12 col-sm-3">
+                  <div class="info-box bg-light">
+                    <div class="info-box-content">
+                      <span class="info-box-text text-center text-muted">Kategori</span>
+                      <span class="info-box-number text-center text-muted mb-0">@ViewBag.category</span>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="col-12 col-sm-3">
+                  <div class="info-box bg-light">
+                    <div class="info-box-content">
+                      <span class="info-box-text text-center text-muted">Marka</span>
+                      <span class="info-box-number text-center text-muted mb-0">@ViewBag.brand</span>
+                    </div>
+                  </div>
+                </div>
+
+                  <div class="col-12 col-sm-3">
+                  <div class="info-box bg-light">
+                    <div class="info-box-content">
+                      <span class="info-box-text text-center text-muted">Seri</span>
+                      <span class="info-box-number text-center text-muted mb-0">@ViewBag.series</span>
+                    </div>
+                  </div>
+                </div>
+
+                  <div class="col-12 col-sm-3">
+                  <div class="info-box bg-light">
+                    <div class="info-box-content">
+                      <span class="info-box-text text-center text-muted">Model</span>
+                      <span class="info-box-number text-center text-muted mb-0">@ViewBag.model</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+
+
+
+              <div class="row">
+                <div class="col-12">
+
+
+                  <table class="table table-bordered product-table">
+                                    <tbody>                                       
+                                        <tr>
+                                            <td>İlan Tarihi</td>
+                                            <td>@(((DateTime)Model.VehicleAdDate).ToString("dd MMMMM yyyy"))</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Yıl</td>
+                                            <td>@Model.VehicleYear</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Yakıt</td>
+                                            <td>@Model.VehicleFuel</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Vites</td>
+                                            <td>@Model.VehicleGear</td>
+                                        </tr>
+                                            <tr>
+                                            <td>KM</td>
+                                            <td>@Model.VehicleKm.ToString("000,000") KM</td>
+                                        </tr>
+                                            <tr>
+                                            <td>Kasa Tipi</td>
+                                            <td>@Model.VehicleBodyType</td>
+                                        </tr>
+                                            <tr>
+                                            <td>Motor Gücü</td>
+                                            <td>@Model.VehicleEnginePower hp</td>
+                                        </tr>
+                                            <tr>
+                                            <td>Motor Hacmi</td>
+                                            <td>@Model.VehicleEngineCapacity cc</td>
+                                        </tr>
+                                            <tr>
+                                            <td>Çekiş</td>
+                                            <td>@Model.VehicleWheelDrive</td>
+                                        </tr>
+                                            <tr>
+                                            <td>Renk</td>
+                                            <td>@Model.VehicleColor</td>
+                                        </tr>
+                                            <tr>
+                                            <td>Garanti</td>
+                                            <td>@Model.VehicleWarranty</td>
+                                        </tr>
+                                            <tr>
+                                            <td>Kimden</td>
+                                            <td>@Model.VehicleFrom</td>
+                                        </tr>
+                                            <tr>
+                                            <td>Takas</td>
+                                            <td>@Model.VehicleExcangeable</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+
+
+                </div>
+              </div>
+            </div>
+
+
+            <div class="col-12 col-md-12 col-lg-4 order-1 order-md-2">
+              <h3 class="text-primary"><i class="fas fa-paint-brush"></i> Araç Açıklama</h3>
+              <p class="text-muted">@Model.VehicleDescription</p>
+              <br>
+
+            </div>
+          </div>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+
+    </section>
+    <!-- /.content -->
+
+

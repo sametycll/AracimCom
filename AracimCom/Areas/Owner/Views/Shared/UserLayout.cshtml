@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aracim | Kullanıcı</title>
+
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback"> 
+  <link rel="stylesheet" href="~/Admin/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="~/Admin/dist/css/adminlte.min.css"> 
+
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <!-- Navbar -->
+        @await Html.PartialAsync("~/Areas/Owner/Views/UserNavbarPartical.cshtml")
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="~/Home/Index" class="brand-link">
+      <img src="~/Admin/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">AracimCom</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="~/Admin/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">Samet YÜCEL</a>
+        </div>
+      </div>
+
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+
+          <li class="nav-item">
+            <a href="~/Owner/Profile/Index" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Profilim              
+              </p>
+            </a>
+          </li>
+
+            <li class="nav-item">
+            <a href="~/Owner/MyVehicle/Index" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Araçlarım              
+              </p>
+            </a>
+          </li>
+
+
+            <li class="nav-item">
+            <a href="~/Owner/Profile/Index" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Mesajlarxxx           
+              </p>
+            </a>
+          </li>
+
+            <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Siteye Git              
+              </p>
+            </a>
+          </li>
+
+            <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Ayarlar              
+              </p>
+            </a>
+          </li>
+
+            <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Çıkış Yap              
+              </p>
+            </a>
+          </li>
+
+        </ul>
+      </nav>
+
+    </div>   
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <div class="content">
+      <div class="container-fluid">
+        <br />            
+                    @RenderBody()   
+
+      </div>
+    </div>   
+  </div>
+
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">   
+    <div class="p-3">
+      <h5>Title</h5>
+      <p>Sidebar content</p>
+    </div>
+  </aside>
+
+
+  <!-- Main Footer -->
+        @await Html.PartialAsync("~/Areas/Owner/Views/UserFooterPartical.cshtml")
+
+</div>
+<script src="~/Admin/plugins/jquery/jquery.min.js"></script>
+<script src="~/Admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="~/Admin/dist/js/adminlte.min.js"></script>
+</body>
+</html>
+
+
