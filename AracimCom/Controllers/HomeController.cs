@@ -21,17 +21,13 @@ namespace AracimCom.Controllers
             var values = vm.GetListAll();
 
             return View(values);
+        }             
+
+        public IActionResult DetailVehicle(int id)
+        {
+            return View(vm.GetByIdWithCt(id));
         }
 
-        public IActionResult VehicleDetail(int id)
-        {
-            var car = vm.GetById(id);
-            ViewBag.model = vm.GetByModel(id).Model.ModelName;
-            ViewBag.series = vm.GetBySeries(id).Model.Series.SeriesName;
-            ViewBag.brand = vm.GetByBrand(id).Model.Series.Brand.BrandName;
-            ViewBag.userName=vm.GetByUser(id).User.UserName;
-            ViewBag.userPhone = vm.GetByUser(id).User.UserPhone;
-            return View(car);
-        }
+
     }
 }

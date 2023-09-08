@@ -23,6 +23,8 @@
       </div><!-- /.container-fluid -->
     </section>
 
+    
+
     <!-- Main content -->
     <section class="content">
 
@@ -86,9 +88,6 @@
                 </div>
 
               </div>
-
-
-
 
               <div class="row">
                 <div class="col-12">
@@ -163,6 +162,30 @@
               <h3 class="text-primary"><i class="fas fa-paint-brush"></i> Araç Açıklama</h3>
               <p class="text-muted">@Model.VehicleDescription</p>
               <br>
+
+                
+
+                  <div class="row">
+                            @Html.Label("Araç Fotoğrafı")
+
+                 <img class="card-img-top img-fluid" style="Width:100%; height:100%;" src="~/VehicleImageFiles/@Model.VehicleImage" alt="Card image cap">
+                     
+
+       <br />
+                  </div>
+
+
+                  <div class="row">
+                            @Html.Label("Araç Vitrin Fotoğrafı")
+
+               <img class="card-img-top img-fluid" style="Width:100%; height:100%;" src="~/VehicleThumbnailImageFiles/@Model.VehicleThumbnailImage" alt="Card image cap">
+               
+
+                             <br />
+                  </div>
+
+
+              
 
             </div>
           </div>

@@ -79,20 +79,21 @@ namespace DataAccessLayer.EntityFramework
                 return c.Vehicles.Include(y => y.Model.Series.Brand).Where(x => x.VehicleID == id).FirstOrDefault();
             }
         }
-
-        public Vehicle ByUser(int id)
-        {
-            using (var c = new Context())
-            {
-                return c.Vehicles.Include(y => y.User).Where(x => x.VehicleID == id).FirstOrDefault();
-            }
-        }
+            
 
         public Vehicle ByCategory(int id)
         {
             using (var c = new Context())
             {
                 return c.Vehicles.Include(y => y.Model.Series.Brand.Category).Where(x => x.VehicleID == id).FirstOrDefault();
+            }
+        }
+
+        public Vehicle ByIdWithCt(int id)
+        {
+            using (var c = new Context())
+            {
+                return c.Vehicles.Where(x=>x.VehicleID==id).Include(x => x.Model.Series.Brand.Category).Include(y => y.User).FirstOrDefault();
             }
         }
     }

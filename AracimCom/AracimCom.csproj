@@ -37,8 +37,8 @@
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Owner\Data\" />
-    <Folder Include="Areas\Owner\Models\" />
     <Folder Include="ViewComponents\Category\" />
+    <Folder Include="wwwroot\VehicleImageFiles\" />
   </ItemGroup>
 
   <ItemGroup>

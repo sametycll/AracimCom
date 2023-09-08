@@ -10,7 +10,7 @@
 
 
 <h2>Aracı Düzenle</h2>
-@using (Html.BeginForm("UpdateVehicle", "MyVehicle", FormMethod.Post))
+<form class="form-group" method="post" enctype="multipart/form-data">
 {
     @Html.Label("Araç ID")
     @Html.TextBoxFor(x=>x.VehicleID, new{@class="form-control", @readonly = true})
@@ -86,16 +86,22 @@
     @Html.Label("Takas")
     @Html.TextBoxFor(x=>x.VehicleExcangeable, new{@class="form-control"})
                  <br />
-    @Html.Label("Araç Fotoğrafı")
-    @Html.TextBoxFor(x=>x.VehicleImage, new{@class="form-control"})
-                     <br />
-    @Html.Label("Araç Vitrin Fotoğrafı")
-    @Html.TextBoxFor(x=>x.VehicleThumbnailImage, new{@class="form-control"})
-                         <br />
+    @Html.Label("Araç Fotoğrafı") 
+   <div style="height:250px;">             
+      <img style="height:100%;" src="~/VehicleImageFiles/@Model.VehicleImage" alt="Card image cap">
+   </div>
+      <input type="file" name="VehicleImage"/> 
+      
+       <br />
 
-
-                  <button class="btn btn-info" >Aracımı Düzenle</button> 
-}
+    @Html.Label("Araç Vitrin Fotoğrafı") 
+    <div style="height:250px;">                
+      <img style="height:100%;" src="~/VehicleThumbnailImageFiles/@Model.VehicleThumbnailImage" alt="Card image cap">
+     </div>
+      <input type="file" name="VehicleThumbnailImage"/>    
+       <br /> <br />
+   <button class="btn btn-info" >Aracımı Düzenle</button> 
+</form>
 <br/>
 
 

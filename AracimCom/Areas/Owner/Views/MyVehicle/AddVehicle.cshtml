@@ -10,8 +10,7 @@
 <script src="~/lib/jquery/dist/jquery.js"></script>
 
 <h2>Araç İlan Ver</h2>
-@using (Html.BeginForm("AddVehicle", "MyVehicle", FormMethod.Post))
-{
+<form class="form-group" method="post" enctype="multipart/form-data">
     @Html.Label("İlan Başlığı")
     @Html.TextBoxFor(x=>x.VehicleTitle, new{@class="form-control"})
     @*@Html.ValidationMessageFor(x=>x.ModelName,"" ,new {@class ="text-danger"})*@
@@ -61,7 +60,7 @@
     @Html.Label("Vites Türü")
     @Html.TextBoxFor(x=>x.VehicleGear, new{@class="form-control"})
              <br />
-   
+
     @Html.Label("Araç Tipi")
     @Html.TextBoxFor(x=>x.VehicleBodyType, new{@class="form-control"})
              <br />
@@ -83,17 +82,24 @@
     @Html.Label("Takas")
     @Html.TextBoxFor(x=>x.VehicleExcangeable, new{@class="form-control"})
              <br />
-    @Html.Label("Araç Fotoğrafı")
-    @Html.TextBoxFor(x=>x.VehicleImage, new{@class="form-control"})
-                 <br />
-    @Html.Label("Araç Vitrin Fotoğrafı")
-    @Html.TextBoxFor(x=>x.VehicleThumbnailImage, new{@class="form-control"})
-                     <br />
+     <label>Araç Fotoğrafı : </label>
+     <input type="file" name="VehicleImage"/>
+                 <br />   <br />
+
+      <label>Araç Vitrin Fotoğrafı : </label>
+     <input type="file" name="VehicleThumbnailImage"/>
+                 <br />   <br />
 
 
-              <button class="btn btn-info" >Aracımı Yayınla</button> 
-}
+  <button class="btn btn-info" >Aracımı Yayınla</button> 
+</form>
 <br/>
+
+
+
+
+
+
 
 <script>
 

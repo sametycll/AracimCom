@@ -14,7 +14,7 @@ namespace BusinessLayer.Concreate
         IVehicleDal _vehicleDal;
         public VehicleManager(IVehicleDal vehicleDal)
         {
-            _vehicleDal = vehicleDal;   
+            _vehicleDal = vehicleDal;
         }
 
 
@@ -28,7 +28,7 @@ namespace BusinessLayer.Concreate
             return _vehicleDal.GetList();
         }
 
-        
+
         public void TAdd(Vehicle t)
         {
             _vehicleDal.Insert(t);
@@ -76,23 +76,24 @@ namespace BusinessLayer.Concreate
         public Vehicle GetByBrand(int id)
         {
             return _vehicleDal.ByBrand(id);
-        }
-        public Vehicle GetByUser(int id)
+        }       
+
+        public Vehicle GetByCategory(int id)
         {
-            return _vehicleDal.ByUser(id);
+
+            return _vehicleDal.ByCategory(id);
         }
 
-        public Vehicle GetByCategory(int id) { 
-
-             return _vehicleDal.ByCategory(id);
-        }
-
-    public List<Vehicle> GetListVehicleWithCategoryUser(int id)
+        public List<Vehicle> GetListVehicleWithCategoryUser(int id)
         {
             return _vehicleDal.ListVehicleWithCategoryUser(id);
         }
 
-      
+        public Vehicle GetByIdWithCt(int id)
+        {
+            return _vehicleDal.ByIdWithCt(id);
+        }
+
 
     }
 }

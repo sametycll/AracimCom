@@ -1,0 +1,176 @@
+﻿@model EntitiyLayer.Concrete.Vehicle
+@{
+    ViewData["Title"] = "DetailVehicle";
+    Layout = "~/Views/Shared/HomeLayout.cshtml";
+}
+
+<section class="bg-gray">
+	<!-- Container Start -->
+	<div class="container">
+		<div class="row" >
+			<!-- 1. KISIM -->
+			<div class="col-lg-6">
+
+				<div class="product-details"  >  @*style=" height:680px; width:460px; "*@
+					<h1 class="product-title">@Model.VehicleTitle</h1>
+					<hr />
+					<div class="product-meta">
+						<ul class="list-inline">
+							<li class="list-inline-item"><i class="fa fa-user-o"></i> By <a href="user-profile.html">Andrew</a></li>
+							<li class="list-inline-item"><i class="fa fa-folder-open-o"></i> Kategori<a href="category.html">@Model.ModelID</a></li>
+							<li class="list-inline-item"><i class="fa fa-location-arrow"></i> Konum<a href="category.html">@Model.VehicleCity/@Model.VehicleDistrict</a></li>
+						</ul>
+					</div>
+
+					<br/>
+					<!-- product slider -->
+				<img class="card-img-top img-fluid"  src="~/VehicleImageFiles/@Model.VehicleImage" alt="Card image cap">
+
+					<div class="content">
+
+						<div class="tab-content" id="pills-tabContent">
+							<div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+								<h2 class="tab-title">İlan Açıklaması</h2>
+
+								<p style="color:black; font-size:18px;">@Model.VehicleDescription</p>
+
+
+							</div>
+
+
+
+
+
+						</div>
+					</div>
+
+
+				</div>
+
+			</div>
+
+
+				<!-- 2. KISIM-->
+			<div class="col-lg-4">
+				<div class="sidebar">					
+				<h2 class="tab-title" style="text-align:right; font-weight:700; color:#00cec9;">@Model.VehiclePrice.ToString("000,000") TL</h2>
+				<div class="tab-content" style="background-color:white;">
+
+								<table class="table table-bordered product-table">
+									<tbody>
+										<tr  style=" border-collapse: collapse;">
+											<td>İlan No</td>
+											<td style="color:red;">#@Model.VehicleAd</td>
+										</tr>
+										<tr>
+											<td>İlan Tarihi</td>
+											<td>@(((DateTime)Model.VehicleAdDate).ToString("dd MMMMM yyyy"))</td>
+										</tr>
+									<tr>
+											<td>Marka</td>
+											<td>@Model.Model.Series.Brand.BrandName</td>
+										</tr>
+									<tr>
+											<td>Seri</td>
+											<td>@Model.Model.Series.SeriesName</td>
+										</tr>
+										<tr>
+											<td>Model</td>
+											<td>@Model.Model.ModelName</td>
+										</tr>
+										<tr>
+											<td>Yıl</td>
+											<td>@Model.VehicleYear</td>
+										</tr>
+										<tr>
+											<td>Yakıt</td>
+											<td>@Model.VehicleFuel</td>
+										</tr>
+										<tr>
+											<td>Vites</td>
+											<td>@Model.VehicleGear</td>
+										</tr>
+											<tr>
+											<td>KM</td>
+											<td>@Model.VehicleKm.ToString("000,000") KM</td>
+										</tr>
+											<tr>
+											<td>Kasa Tipi</td>
+											<td>@Model.VehicleBodyType</td>
+										</tr>
+											<tr>
+											<td>Motor Gücü</td>
+											<td>@Model.VehicleEnginePower hp</td>
+										</tr>
+											<tr>
+											<td>Motor Hacmi</td>
+											<td>@Model.VehicleEngineCapacity cc</td>
+										</tr>
+											<tr>
+											<td>Çekiş</td>
+											<td>@Model.VehicleWheelDrive</td>
+										</tr>
+											<tr>
+											<td>Renk</td>
+											<td>@Model.VehicleColor</td>
+										</tr>
+											<tr>
+											<td>Garanti</td>
+											<td>@Model.VehicleWarranty</td>
+										</tr>
+											<tr>
+											<td>Kimden</td>
+											<td>@Model.VehicleFrom</td>
+										</tr>
+											<tr>
+											<td>Takas</td>
+											<td>@Model.VehicleExcangeable</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+
+				</div>
+			</div>
+
+
+
+
+			<!-- 3. KISIM-->
+			<div class="col-lg-2" >
+				<div class="sidebar" >
+
+					<!-- User Profile widget -->
+					<div class="widget user text-center" style="border-style: groove;">						
+						<h4><a href="user-profile.html">@Model.User.UserName</a></h4>
+						<p class="member-time">@Model.User.UserPhone</p>					
+					</div>	
+
+				</div>
+			</div>
+
+
+
+		</div>
+
+
+
+		<div class="row">			
+			<div class="col-lg-10">
+
+
+				<div class="product-details" >
+
+
+
+					</div>
+
+			</div>
+		</div>
+
+
+	</div>
+	<!-- Container End -->
+</section>
