@@ -24,6 +24,7 @@ namespace DataAccessLayer.Concrete
         public DbSet<Series> Seriess { get; set; }
         public DbSet<User> Users{ get; set; }
         public DbSet<Vehicle> Vehicles{ get; set; }
+        public DbSet<Notification> Notifications{ get; set; }
 
 
 

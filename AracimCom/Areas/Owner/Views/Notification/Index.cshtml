@@ -1,0 +1,19 @@
+﻿@using EntitiyLayer.Concrete
+@model List<Notification>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Owner/Views/Shared/OwnerLayout.cshtml";
+}
+
+@foreach(var x in Model){
+        <div class="callout callout-info">
+      <h5><i class="@x.NotificationTypeSymbol" style="color:@x.NotificationColor; padding-right:4px;"></i>@x.NotificationType :</h5>
+        <p>
+            @x.NotificationDetails
+
+        </p> 
+                <p style="text-align:right; font-weight:bold; color:indianred;">@(((DateTime)x.NotificationDate).ToString("dd MMMMM yyyy"))</p>
+    </div>
+}
+
+

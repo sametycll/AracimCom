@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "AFVw7LQ9gn+GDP+9WzBwrCoTEUPsn4eWS0zTZgk37gQ=",
+  "Hash": "WC61KJ2tFZvlwI/1xVW0MHz0uuo2b9QYJWkLm20pwD8=",
   "Source": "AracimCom",
   "BasePath": "_content/AracimCom",
   "Mode": "Default",
@@ -44404,6 +44404,40 @@
       "OriginalItemSpec": "wwwroot\\VehicleThumbnailImageFiles\\28e08e41-5977-4229-8567-a32ff0bd4f72.jpg"
     },
     {
+      "Identity": "C:\\Users\\samet\\OneDrive\\Belgeler\\C#\\AracimCom\\AracimCom\\wwwroot\\VehicleThumbnailImageFiles\\3e93d39b-18bf-4d21-b16f-65bef301e2e3.jpeg",
+      "SourceId": "AracimCom",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\samet\\OneDrive\\Belgeler\\C#\\AracimCom\\AracimCom\\wwwroot\\",
+      "BasePath": "_content/AracimCom",
+      "RelativePath": "VehicleThumbnailImageFiles/3e93d39b-18bf-4d21-b16f-65bef301e2e3.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\VehicleThumbnailImageFiles\\3e93d39b-18bf-4d21-b16f-65bef301e2e3.jpeg"
+    },
+    {
+      "Identity": "C:\\Users\\samet\\OneDrive\\Belgeler\\C#\\AracimCom\\AracimCom\\wwwroot\\VehicleThumbnailImageFiles\\62cfc300-d6ec-4e16-8aea-06529386834e.jpg",
+      "SourceId": "AracimCom",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\samet\\OneDrive\\Belgeler\\C#\\AracimCom\\AracimCom\\wwwroot\\",
+      "BasePath": "_content/AracimCom",
+      "RelativePath": "VehicleThumbnailImageFiles/62cfc300-d6ec-4e16-8aea-06529386834e.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\VehicleThumbnailImageFiles\\62cfc300-d6ec-4e16-8aea-06529386834e.jpg"
+    },
+    {
       "Identity": "C:\\Users\\samet\\OneDrive\\Belgeler\\C#\\AracimCom\\AracimCom\\wwwroot\\VehicleThumbnailImageFiles\\7da32652-a893-4d2e-be4e-9aa2dd83ecb3.jpg",
       "SourceId": "AracimCom",
       "SourceType": "Discovered",
@@ -44470,6 +44504,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\VehicleThumbnailImageFiles\\e0173338-8ec0-4d51-8875-a75c1fd27341.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\samet\\OneDrive\\Belgeler\\C#\\AracimCom\\AracimCom\\wwwroot\\VehicleThumbnailImageFiles\\e6e205df-6613-4519-b6ed-fa20fe0b4763.jpeg",
+      "SourceId": "AracimCom",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\samet\\OneDrive\\Belgeler\\C#\\AracimCom\\AracimCom\\wwwroot\\",
+      "BasePath": "_content/AracimCom",
+      "RelativePath": "VehicleThumbnailImageFiles/e6e205df-6613-4519-b6ed-fa20fe0b4763.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\VehicleThumbnailImageFiles\\e6e205df-6613-4519-b6ed-fa20fe0b4763.jpeg"
     },
     {
       "Identity": "C:\\Users\\samet\\OneDrive\\Belgeler\\C#\\AracimCom\\AracimCom\\wwwroot\\VehicleThumbnailImageFiles\\ea158238-e64b-478f-b20b-6e69b482acf3.jpeg",
