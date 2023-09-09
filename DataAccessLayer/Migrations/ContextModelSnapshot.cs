@@ -71,6 +71,78 @@ namespace DataAccessLayer.Migrations
                     b.ToTable("Categories");
                 });
 
+            modelBuilder.Entity("EntitiyLayer.Concrete.Message", b =>
+                {
+                    b.Property<int>("MessageID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MessageID"), 1L, 1);
+
+                    b.Property<DateTime>("MessageDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("MessageDetails")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("MessageStatus")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Receiver")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Sender")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Subject")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("MessageID");
+
+                    b.ToTable("Messages");
+                });
+
+            modelBuilder.Entity("EntitiyLayer.Concrete.Message2", b =>
+                {
+                    b.Property<int>("MessageID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MessageID"), 1L, 1);
+
+                    b.Property<DateTime>("MessageDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("MessageDetails")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("MessageStatus")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("ReceiverID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SenderID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Subject")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("MessageID");
+
+                    b.HasIndex("ReceiverID");
+
+                    b.HasIndex("SenderID");
+
+                    b.ToTable("Message2s");
+                });
+
             modelBuilder.Entity("EntitiyLayer.Concrete.Model", b =>
                 {
                     b.Property<int>("ModelID")
@@ -303,6 +375,21 @@ namespace DataAccessLayer.Migrations
                     b.Navigation("Category");
                 });
 
+            modelBuilder.Entity("EntitiyLayer.Concrete.Message2", b =>
+                {
+                    b.HasOne("EntitiyLayer.Concrete.User", "ReceiverUser")
+                        .WithMany("UserReceiver")
+                        .HasForeignKey("ReceiverID");
+
+                    b.HasOne("EntitiyLayer.Concrete.User", "SenderUser")
+                        .WithMany("UserSender")
+                        .HasForeignKey("SenderID");
+
+                    b.Navigation("ReceiverUser");
+
+                    b.Navigation("SenderUser");
+                });
+
             modelBuilder.Entity("EntitiyLayer.Concrete.Model", b =>
                 {
                     b.HasOne("EntitiyLayer.Concrete.Series", "Series")
@@ -366,6 +453,10 @@ namespace DataAccessLayer.Migrations
 
             modelBuilder.Entity("EntitiyLayer.Concrete.User", b =>
                 {
+                    b.Navigation("UserReceiver");
+
+                    b.Navigation("UserSender");
+
                     b.Navigation("Vehicles");
                 });
 #pragma warning restore 612, 618

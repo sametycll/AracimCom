@@ -18,6 +18,21 @@ namespace DataAccessLayer.Concrete
            
         } 
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Message2>()
+                .HasOne(x => x.SenderUser)
+                .WithMany(y=>y.UserSender)
+                .HasForeignKey(z=>z.SenderID)
+                .OnDelete(DeleteBehavior.ClientSetNull);
+
+            modelBuilder.Entity<Message2>()
+                .HasOne(x => x.ReceiverUser)
+                .WithMany(y => y.UserReceiver)
+                .HasForeignKey(z => z.ReceiverID)
+                .OnDelete(DeleteBehavior.ClientSetNull);
+        }
+
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Model> Models { get; set; }
@@ -25,6 +40,8 @@ namespace DataAccessLayer.Concrete
         public DbSet<User> Users{ get; set; }
         public DbSet<Vehicle> Vehicles{ get; set; }
         public DbSet<Notification> Notifications{ get; set; }
+        public DbSet<Message> Messages{ get; set; }
+        public DbSet<Message2> Message2s { get; set; }
 
 
 

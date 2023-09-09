@@ -67,6 +67,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVmVoaWNsZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/samet/OneDrive/Belgeler/C\#/AracimCom/AracimCom/Areas/Owner/Views/Message/DetailMessage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcT3duZXJcVmlld3NcTWVzc2FnZVxEZXRhaWxNZXNzYWdlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/samet/OneDrive/Belgeler/C\#/AracimCom/AracimCom/Areas/Owner/Views/Message/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcT3duZXJcVmlld3NcTWVzc2FnZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/samet/OneDrive/Belgeler/C\#/AracimCom/AracimCom/Areas/Owner/Views/MyVehicle/AddVehicle.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcT3duZXJcVmlld3NcTXlWZWhpY2xlXEFkZFZlaGljbGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -97,10 +105,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/samet/OneDrive/Belgeler/C\#/AracimCom/AracimCom/Areas/Owner/Views/Shared/Components/UserMessageNotification/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcT3duZXJcVmlld3NcU2hhcmVkXENvbXBvbmVudHNcVXNlck1lc3NhZ2VOb3RpZmljYXRpb25cRGVmYXVsdC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/samet/OneDrive/Belgeler/C\#/AracimCom/AracimCom/Areas/Owner/Views/Shared/Components/UserNotification/Default.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcT3duZXJcVmlld3NcU2hhcmVkXENvbXBvbmVudHNcVXNlck5vdGlmaWNhdGlvblxEZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/samet/OneDrive/Belgeler/C\#/AracimCom/AracimCom/Areas/Owner/Views/Shared/OwnerLayout.cshtml]

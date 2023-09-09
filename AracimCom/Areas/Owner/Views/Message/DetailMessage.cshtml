@@ -1,0 +1,28 @@
+﻿@model EntitiyLayer.Concrete.Message2
+
+@{
+    ViewData["Title"] = "DetailMessage";
+    Layout = "~/Areas/Owner/Views/Shared/OwnerLayout.cshtml";
+}
+
+ <div class="col-md-12">
+          <div class="card card-primary card-outline">
+            <div class="card-header">
+              <h3 class="card-title">Mesajı Oku</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body p-0">
+              <div class="mailbox-read-info">
+                <h4><b>@Model.Subject</h4></b>
+                <h5 style="font-weight:500;">Gönderen: @Model.SenderUser.UserName
+                  <span class="mailbox-read-time float-right" style="color:red; font-size:16px;">@Model.MessageDate.ToShortDateString()</span></h5>
+              </div>          
+              <!-- /.mailbox-controls -->
+              <div class="mailbox-read-message">
+               <h5> @Model.MessageDetails </h5>
+              </div>
+              <!-- /.mailbox-read-message -->
+            </div>          
+          </div>         
+        </div>
+

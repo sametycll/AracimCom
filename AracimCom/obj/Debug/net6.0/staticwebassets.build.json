@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "WC61KJ2tFZvlwI/1xVW0MHz0uuo2b9QYJWkLm20pwD8=",
+  "Hash": "3y7bhuYiEPquPbiZBoBFbTxsiDKbV6UCkcBHcp+Jmd8=",
   "Source": "AracimCom",
   "BasePath": "_content/AracimCom",
   "Mode": "Default",
@@ -43144,6 +43144,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Home\\user-profile.html"
+    },
+    {
+      "Identity": "C:\\Users\\samet\\OneDrive\\Belgeler\\C#\\AracimCom\\AracimCom\\wwwroot\\img\\blank-profile-picture-973460_640.png",
+      "SourceId": "AracimCom",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\samet\\OneDrive\\Belgeler\\C#\\AracimCom\\AracimCom\\wwwroot\\",
+      "BasePath": "_content/AracimCom",
+      "RelativePath": "img/blank-profile-picture-973460_640.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\blank-profile-picture-973460_640.png"
     },
     {
       "Identity": "C:\\Users\\samet\\OneDrive\\Belgeler\\C#\\AracimCom\\AracimCom\\wwwroot\\js\\site.js",

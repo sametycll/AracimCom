@@ -18,5 +18,8 @@ namespace EntitiyLayer.Concrete
         public string UserPhone { get; set; }
         public bool UserStatus { get; set; }
         public List<Vehicle> Vehicles { get; set; }
+        public virtual ICollection<Message2> UserSender { get; set; }
+        public virtual ICollection<Message2> UserReceiver { get; set; }
+
     }
 }
