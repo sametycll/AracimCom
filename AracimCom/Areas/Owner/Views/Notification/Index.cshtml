@@ -1,5 +1,7 @@
-﻿@using EntitiyLayer.Concrete
-@model List<Notification>
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+@using X.PagedList.Web.Common
+@model IEnumerable<EntitiyLayer.Concrete.Notification>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Owner/Views/Shared/OwnerLayout.cshtml";
@@ -15,5 +17,16 @@
                 <p style="text-align:right; font-weight:bold; color:indianred;">@(((DateTime)x.NotificationDate).ToString("dd MMMMM yyyy"))</p>
     </div>
 }
+
+ <br />
+
+
+@Html.PagedListPager((IPagedList)Model, page=>Url.Action("Index", new{page = page}),
+      new PagedListRenderOptions(){
+
+         ContainerDivClasses=new[] {"navigation"},
+         LiElementClasses=new [] {"page-item"},
+         PageClasses =new[] {"page-link"},
+      })
 
 

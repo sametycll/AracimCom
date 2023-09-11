@@ -1,6 +1,8 @@
 ﻿using BusinessLayer.Concreate;
 using DataAccessLayer.EntityFramework;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using X.PagedList;
 
 namespace AracimCom.Areas.Owner.Controllers
 {
@@ -8,9 +10,9 @@ namespace AracimCom.Areas.Owner.Controllers
     public class NotificationController : Controller
     {
         NotificationManager nm = new NotificationManager(new EfNotificationRepository());
-        public IActionResult Index()
+        public IActionResult Index(int page = 1)
         {
-            var values = nm.GetListAll();
+            var values = nm.GetListAll().ToPagedList(page, 3);
             return View(values);
         }
     }

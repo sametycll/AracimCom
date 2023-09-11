@@ -6,8 +6,10 @@ using DataAccessLayer.EntityFramework;
 using EntitiyLayer.Concrete;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Security.Claims;
+using X.PagedList;
 
 namespace AracimCom.Areas.Owner.Controllers
 {
@@ -22,11 +24,11 @@ namespace AracimCom.Areas.Owner.Controllers
         CategoryManager cm = new CategoryManager(new EfCategoryRepository());
         Context c=new Context();
         //[AllowAnonymous]
-        public IActionResult Index()
+        public IActionResult Index(int page = 1)
         {
             var userMail = User.Identity.Name;
             var _userID=c.Users.Where(x=>x.UserMail==userMail).Select(y=>y.UserID).FirstOrDefault();
-            var values=vm.GetListVehicleWithCategoryUser(_userID);
+            var values=vm.GetListVehicleWithCategoryUser(_userID).ToPagedList(page, 5);
             return View(values);
         }
 

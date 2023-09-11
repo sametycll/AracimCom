@@ -1,5 +1,7 @@
-﻿@using EntitiyLayer.Concrete
-@model List<Vehicle>
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+@using X.PagedList.Web.Common
+@model IEnumerable<EntitiyLayer.Concrete.Vehicle>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Owner/Views/Shared/OwnerLayout.cshtml";
@@ -40,3 +42,11 @@
 
 
 
+ <br />
+@Html.PagedListPager((IPagedList)Model, page=>Url.Action("Index", new{page = page}),
+      new PagedListRenderOptions(){
+
+         ContainerDivClasses=new[] {"navigation"},
+         LiElementClasses=new [] {"page-item"},
+         PageClasses =new[] {"page-link"},
+      })
