@@ -1,11 +1,13 @@
 ﻿using AracimCom.Areas.Owner.Models;
 using BusinessLayer.Concreate;
 using BusinessLayer.ValidationRules;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntitiyLayer.Concrete;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Security.Claims;
 
 namespace AracimCom.Areas.Owner.Controllers
 {
@@ -18,12 +20,13 @@ namespace AracimCom.Areas.Owner.Controllers
         SeriesManager sm = new SeriesManager(new EfSeriesRepository());
         BrandManager bm = new BrandManager(new EfBrandRepository());
         CategoryManager cm = new CategoryManager(new EfCategoryRepository());
-
+        Context c=new Context();
         //[AllowAnonymous]
         public IActionResult Index()
         {
-            var values = vm.GetListVehicleWithCategoryUser(1);
-
+            var userMail = User.Identity.Name;
+            var _userID=c.Users.Where(x=>x.UserMail==userMail).Select(y=>y.UserID).FirstOrDefault();
+            var values=vm.GetListVehicleWithCategoryUser(_userID);
             return View(values);
         }
 
@@ -127,7 +130,10 @@ namespace AracimCom.Areas.Owner.Controllers
                 v.VehicleAd = "12345678";
                 v.VehicleAdDate = DateTime.Parse(DateTime.Now.ToShortDateString());
                 v.VehicleStatus = true;
-                v.UserID = 1;
+                var userMail = User.Identity.Name;
+                var _userID = c.Users.Where(x => x.UserMail == userMail).Select(y => y.UserID).FirstOrDefault();
+                var values = um.GetById(_userID).UserID;
+                v.UserID = values;
                 v.ModelID = p.ModelID;
                 vm.TAdd(v);
                 return RedirectToAction("Index", "MyVehicle");
@@ -288,7 +294,10 @@ namespace AracimCom.Areas.Owner.Controllers
             newVh.VehicleAd = "12345678";
             newVh.VehicleAdDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             newVh.VehicleStatus = true;
-            newVh.UserID = 1;
+            var userMail = User.Identity.Name;
+            var _userID = c.Users.Where(x => x.UserMail == userMail).Select(y => y.UserID).FirstOrDefault();
+            var values = um.GetById(_userID).UserID;
+            newVh.UserID =values;
             newVh.ModelID = p.ModelID;
            // newVh.VehicleID = oldVh.VehicleID;
             vm.TUpdate(newVh);

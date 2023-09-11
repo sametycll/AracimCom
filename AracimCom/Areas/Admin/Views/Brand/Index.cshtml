@@ -1,6 +1,7 @@
-﻿@using EntitiyLayer.Concrete
-@model List<Brand>
-
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+@using X.PagedList.Web.Common
+@model IEnumerable<EntitiyLayer.Concrete.Brand>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
@@ -34,11 +35,21 @@
             <td style="background-color:red; color:white">@x.BrandStatus</td>
             }
 
-         <td><a href="~/Admin/Brand/PassiveBrand/@x.BrandID" class="btn btn-danger">Pasif Yap</a></td>
-        <td><a href="~/Admin/Brand/ActiveBrand/@x.BrandID" class="btn btn-success">Aktif Yap</a></td>
+             <td><a href="~/Admin/Brand/PassiveBrand/@x.BrandID" onclick="return confirm('Pasif durumuna getirmek istediğinizden emin misiniz?')"  class="btn btn-danger">Pasif Yap</a></td>
+            <td><a href="~/Admin/Brand/ActiveBrand/@x.BrandID" onclick="return confirm('Aktif durumuna getirmek istediğinizden emin misiniz?')"  class="btn btn-success">Aktif Yap</a></td>
            <td><a href="~/Admin/Brand/UpdateBrand/@x.BrandID" class="btn btn-warning">Düzenle</a></td>
             </tr>   
     }
  </table>
 
+ <br />
+
+
+@Html.PagedListPager((IPagedList)Model, page=>Url.Action("Index", new{page = page}),
+      new PagedListRenderOptions(){
+
+         ContainerDivClasses=new[] {"navigation"},
+         LiElementClasses=new [] {"page-item"},
+         PageClasses =new[] {"page-link"},
+      })
 

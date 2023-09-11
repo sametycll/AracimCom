@@ -1,5 +1,7 @@
-﻿@using EntitiyLayer.Concrete
-@model List<Vehicle>
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+@using X.PagedList.Web.Common
+@model IEnumerable<EntitiyLayer.Concrete.Vehicle>
 
 
 @{
@@ -33,8 +35,22 @@
               <td>@x.Model.Series.Brand.Category.CategoryName</td>          
               <td><a href="~/Admin/Vehicle/DetailVehicle/@x.VehicleID" class="btn btn-info">Detaylar</a></td>              
               <td><a href="~/Admin/Vehicle/UpdateVehicle/@x.VehicleID" class="btn btn-warning">Düzenle</a></td>
-              <td><a href="~/Admin/Vehicle/DeleteVehicle/@x.VehicleID" class="btn btn-danger">Sil</a></td>
+             <td><a href="~/Admin/Vehicle/DeleteVehicle/@x.VehicleID"  onclick="return confirm('Silmek istediğinizden emin misiniz?');" class="btn btn-danger">Sil</a></td>
              </tr>   
     }
  </table>
+ <br />
+
+
+@Html.PagedListPager((IPagedList)Model, page=>Url.Action("Index", new{page = page}),
+      new PagedListRenderOptions(){
+          
+         ContainerDivClasses=new[] {"navigation"},
+         LiElementClasses=new [] {"page-item"},
+         PageClasses =new[] {"page-link"},
+      })
+   
+
+
+
 

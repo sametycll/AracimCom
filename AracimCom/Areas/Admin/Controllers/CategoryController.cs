@@ -4,6 +4,8 @@ using DataAccessLayer.EntityFramework;
 using EntitiyLayer.Concrete;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using X.PagedList;
 
 namespace AracimCom.Areas.Admin.Controllers
 {
@@ -11,9 +13,9 @@ namespace AracimCom.Areas.Admin.Controllers
     public class CategoryController : Controller
     {
         CategoryManager cm = new CategoryManager(new EfCategoryRepository());
-        public IActionResult Index()
+        public IActionResult Index(int page = 1)
         {
-            var values = cm.GetListAll();
+            var values = cm.GetListAll().ToPagedList(page, 5); ;
             return View(values);
         }
 

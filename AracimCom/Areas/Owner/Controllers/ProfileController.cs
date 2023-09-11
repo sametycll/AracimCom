@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concreate;
 using BusinessLayer.ValidationRules;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntitiyLayer.Concrete;
 using FluentValidation.Results;
@@ -11,11 +12,14 @@ namespace AracimCom.Areas.Owner.Controllers
     public class ProfileController : Controller
     {
         UserManager um = new UserManager(new EfUserRepository());
-
+        Context c = new Context();
         [HttpGet]
         public IActionResult Index()
         {
-            var userValues = um.GetById(1);
+            var userMail = User.Identity.Name;
+            var _userID = c.Users.Where(x => x.UserMail == userMail).Select(y => y.UserID).FirstOrDefault();
+            var id = um.GetById(_userID).UserID;
+            var userValues = um.GetById(id);
             return View(userValues);
         }
 

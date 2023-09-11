@@ -1,6 +1,7 @@
-﻿@using EntitiyLayer.Concrete
-@model List<Model>
-
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+@using X.PagedList.Web.Common
+@model IEnumerable<EntitiyLayer.Concrete.Model>
 
 @{
     ViewData["Title"] = "Index";
@@ -39,10 +40,18 @@
                             <td style="background-color:red; color:white">@x.ModelStatus</td>
             }
 
-             <td><a href="~/Admin/Model/PassiveModel/@x.ModelID" class="btn btn-danger">Pasif Yap</a></td>
-              <td><a href="~/Admin/Model/ActiveModel/@x.ModelID" class="btn btn-success">Aktif Yap</a></td>
+                 <td><a href="~/Admin/Model/PassiveModel/@x.ModelID" onclick="return confirm('Pasif durumuna getirmek istediğinizden emin misiniz?')"  class="btn btn-danger">Pasif Yap</a></td>
+                  <td><a href="~/Admin/Model/ActiveModel/@x.ModelID" onclick="return confirm('Aktif durumuna getirmek istediğinizden emin misiniz?')"  class="btn btn-success">Aktif Yap</a></td>
              <td><a href="~/Admin/Model/UpdateModel/@x.ModelID" class="btn btn-warning">Düzenle</a></td>
          </tr>   
     }
  </table>
 
+ <br />
+@Html.PagedListPager((IPagedList)Model, page=>Url.Action("Index", new{page = page}),
+      new PagedListRenderOptions(){
+
+         ContainerDivClasses=new[] {"navigation"},
+         LiElementClasses=new [] {"page-item"},
+         PageClasses =new[] {"page-link"},
+      })

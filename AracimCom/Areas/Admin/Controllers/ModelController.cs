@@ -4,7 +4,9 @@ using DataAccessLayer.EntityFramework;
 using EntitiyLayer.Concrete;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using X.PagedList;
 
 namespace AracimCom.Areas.Admin.Controllers
 {
@@ -15,13 +17,10 @@ namespace AracimCom.Areas.Admin.Controllers
         SeriesManager sm = new SeriesManager(new EfSeriesRepository());
         BrandManager bm = new BrandManager(new EfBrandRepository());
         CategoryManager cm = new CategoryManager(new EfCategoryRepository());
-
-        public IActionResult Index()
+        public IActionResult Index(int page = 1)
         {
-            //var values = mm.GetListAll();
-            //values = mm.GetListModelWithSeries();
-            //values = mm.GetListModelWithBrand();
-            var values = mm.GetListModelWithCategory();
+           
+            var values = mm.GetListModelWithCategory().ToPagedList(page, 5);
 
 
             return View(values);
