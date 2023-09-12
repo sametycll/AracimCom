@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aracim | Admin</title>
+
+  <script src="https://kit.fontawesome.com/e8e59e0144.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback"> 
+  <link rel="stylesheet" href="~/Admin/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="~/Admin/dist/css/adminlte.min.css"> 
+
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <!-- Navbar -->
+        @await Html.PartialAsync("~/Areas/Admin/Views/Shared/AdminNavbarPartical.cshtml")
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="~/Admin/index3.html" class="brand-link">    
+      <img src="~/Admin/dist/img/logo3.png" />
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="~/Admin/dist/img/blank.png" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">Admin</a>
+        </div>
+      </div>
+
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+ 
+        
+          <li class="nav-item">
+            <a href="~/Admin/Profile/Index" class="nav-link">
+              <i class="nav-icon fa-solid fa-user"></i>
+              <p>
+                Profilim              
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="~/Admin/Widget/Index" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Widgets              
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="~/Admin/Chart/Index" class="nav-link">
+              <i class="nav-icon fa-solid fa-chart-pie"></i>
+              <p>
+                Charts              
+              </p>
+            </a>
+          </li>
+
+            <li class="nav-item">
+            <a href="~/Admin/Category/Index" class="nav-link">
+              <i class="nav-icon fa-solid fa-bars"></i>
+              <p>
+                Kategoriler              
+              </p>
+            </a>
+          </li>
+
+              <li class="nav-item">
+            <a href="~/Admin/Brand/Index" class="nav-link">
+              <i class="nav-icon fa-solid fa-layer-group"></i>
+              <p>
+                Markalar              
+              </p>
+            </a>
+          </li>
+
+              <li class="nav-item">
+            <a href="~/Admin/Series/Index" class="nav-link">
+              <i class="nav-icon fa-solid fa-list"></i>
+              <p>
+                Seriler              
+              </p>
+            </a>
+          </li>
+
+              <li class="nav-item">
+            <a href="~/Admin/Model/Index" class="nav-link">
+              <i class="nav-icon fa-solid fa-paperclip"></i>
+              <p>
+                Modeller              
+              </p>
+            </a>
+          </li>
+
+              <li class="nav-item">
+            <a href="~/Admin/Vehicle/Index" class="nav-link">
+              <i class="nav-icon fa-solid fa-car-rear"></i>
+              <p>
+                Araçlar              
+              </p>
+            </a>
+          </li>
+
+              <li class="nav-item">
+            <a href="~/Admin/Users/Index" class="nav-link">
+              <i class="nav-icon fa-solid fa-user-group"></i>
+              <p>
+                Kullanıcılar              
+              </p>
+            </a>
+          </li>
+
+            <li class="nav-item">
+            <a href="~/Admin/Message/Index" class="nav-link">
+              <i class="nav-icon far fa-envelope"></i>
+              <p>
+                Mesajlar              
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="~/Admin/Notification/Index" class="nav-link">
+              <i class="nav-icon fa-regular fa-bell"></i>
+              <p>
+                Bildirimler              
+              </p>
+            </a>
+          </li>
+
+            <li class="nav-item">
+            <a href="~/Home/Index" class="nav-link">
+              <i class="nav-icon fa-solid fa-house"></i>
+              <p>
+                Siteye Git              
+              </p>
+            </a>
+          </li>
+
+            <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa-solid fa-gear"></i>
+              <p>
+                Ayarlar              
+              </p>
+            </a>
+          </li>
+
+            <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa-solid fa-right-from-bracket"></i>
+              <p>
+                Çıkış Yap              
+              </p>
+            </a>
+          </li>
+
+        </ul>
+      </nav>
+     
+    </div>   
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <div class="content">
+      <div class="container-fluid">
+        <br />            
+                @RenderBody()   
+        
+      </div>
+    </div>   
+  </div>
+  
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">   
+    <div class="p-3">
+      <h5>Title</h5>
+      <p>Sidebar content</p>
+    </div>
+  </aside>
+  
+
+  <!-- Main Footer -->
+        @await Html.PartialAsync("~/Areas/Admin/Views/Shared/AdminFooterPartical.cshtml")
+ 
+</div>
+<script src="~/Admin/plugins/jquery/jquery.min.js"></script>
+<script src="~/Admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="~/Admin/dist/js/adminlte.min.js"></script>
+</body>
+</html>
+
+
