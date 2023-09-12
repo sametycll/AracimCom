@@ -1,0 +1,14 @@
+﻿@model IEnumerable<EntitiyLayer.Concrete.Model>
+
+<div class="category-sidebar" >
+ <div class="widget category-list" style="border-style: groove;">
+	<h4 class="widget-header" style="text-align:center; font-weight:bold; font-size:22px;">Modeller</h4>
+		<button onclick="history.back()" style="border: none; background-color: white; color:blue; font-weight:bold; font-size:17px; text-decoration: underline;"> <<< Geriye Git</button>
+	<ul class="category-list">
+			@foreach (var x in Model)
+			{
+				<li><a href="~/Home/VehicleList/@x.ModelID" style="font-size:16px;">@x.ModelName <span>1</span></a></li>
+			}
+	</ul>
+</div>
+</div>

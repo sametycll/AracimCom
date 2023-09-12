@@ -1,0 +1,121 @@
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+@using X.PagedList.Web.Common
+@model IEnumerable<EntitiyLayer.Concrete.Vehicle>
+
+@{
+    ViewData["Title"] = "VehicleList";
+    Layout = "~/Views/Shared/HomeLayout.cshtml";
+}
+
+
+<div class="row"> 
+			<!-- left side - category -->
+<div class="col-lg-3 col-md-4">
+
+		@await Component.InvokeAsync("HomeVehicleList",new {id=ViewBag.Id})
+
+</div>
+
+
+<div class="col-lg-9 col-md-8">
+				
+ <div class="product-grid-list">
+   <div class="row">
+
+@foreach(var x in Model)
+{
+
+<div class="col-lg-3 col-md-6">
+							<!-- product card -->
+  <div class="product-item bg-light" style="border-style: groove;">
+	<div class="card">
+			<div class="thumb-content" style="Width:178px; height:137px;"> 
+			<!-- <div class="price">$200</div> -->
+				<a href="~/Home/DetailVehicle/@x.VehicleID">
+	<img class="card-img-top img-fluid"   style="Width:100%; height:100%; border: 1px solid #ddd;  border-radius: 4px;  padding: 5px;"  src="~/VehicleThumbnailImageFiles/@x.VehicleThumbnailImage" alt="Card image cap">
+			</a>
+		</div>			
+	<div class="card-body">
+		<h1 class="card-title">
+			<a  href="~/Home/DetailVehicle/@x.VehicleID">
+				@if(x.VehicleTitle.Length > 15)
+				{
+					@x.VehicleTitle.Substring(0,15);
+				}
+				else{
+					@x.VehicleTitle
+				}
+			</a>
+		</h1>
+			<hr/>
+
+		<ul class="list-inline product-meta">
+				<li class="list-inline-item" style="position: absolute;">
+				<a href=""><i class="fa fa-calendar"></i>@(((DateTime)x.VehicleAdDate).ToString("dd-MMM-yyyy"))</a>
+				</li>
+			
+		</ul>
+
+				
+		<ul class="list-inline product-meta" style="padding-top:20px;">
+			<li class="list-inline-item">
+			<a href=""><i class="fa-solid fa-location-dot "></i>@x.VehicleCity</a>
+						
+			</li>
+		</ul>	
+				
+
+		<ul class="list-inline product-meta">
+			<li class="list-inline-item">
+			<a href=""><i class="fa-solid fa-car-side"></i>@x.VehicleKm.ToString("000,000") KM</a>
+
+			</li>
+			<li class="list-inline-item">
+			<a href=""><i class="fa-solid fa-calendar-check "></i>@x.VehicleYear</a>
+
+			</li>
+		</ul>
+
+
+		<ul class="list-inline product-meta" style="text-align: right;">
+		 <li class="list-inline-item"  style="font-weight: 900;">
+		 <a href=""><i class="fa-solid fa-money-bill-1"></i>@x.VehiclePrice.ToString("000,000") TL</a>
+		   </li>
+		</ul>
+		   
+				
+		   
+	</div>
+ </div>
+</div>
+
+
+</div>
+}	  
+					
+</div>
+</div>
+
+
+
+				<div class="pagination justify-content-center" style="text-align: center;">
+					<nav aria-label="Page navigation example" style="text-align: center;">
+				@Html.PagedListPager((IPagedList)Model, page=>Url.Action("VehicleList", new{page = page}),
+      new PagedListRenderOptions(){
+
+         ContainerDivClasses=new[] {"navigation"},
+         LiElementClasses=new [] {"page-item"},
+         PageClasses =new[] {"page-link"},
+      })
+					</nav>
+				</div>
+			</div>
+
+							</div>
+
+
+ <br />
+
+
+

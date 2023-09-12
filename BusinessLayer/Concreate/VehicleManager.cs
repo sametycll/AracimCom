@@ -49,7 +49,15 @@ namespace BusinessLayer.Concreate
         {
             return _vehicleDal.ListVehicleWithBrand();
         }
+        public List<Vehicle> GetVehicleListWithBrand(int id)
+        {
+            return _vehicleDal.ListVehicleWithBrand(id);
+        }
 
+        public List<Vehicle> GetVehicleListWithCategory(int id)
+        {
+            return _vehicleDal.ListVehicleWithCategory(id);
+        }
         public List<Vehicle> GetVehicleListWithCategory()
         {
             return _vehicleDal.ListVehicleWithCategory();
@@ -59,10 +67,18 @@ namespace BusinessLayer.Concreate
         {
             return _vehicleDal.ListVehicleWithModel();
         }
+        public List<Vehicle> GetVehicleListWithModel(int id)
+        {
+            return _vehicleDal.ListVehicleWithModel(id);
+        }
 
         public List<Vehicle> GetVehicleListWithSeries()
         {
             return _vehicleDal.ListVehicleWithSeries();
+        }
+        public List<Vehicle> GetVehicleListWithSeries(int id)
+        {
+            return _vehicleDal.ListVehicleWithSeries(id);
         }
 
         public Vehicle GetByModel(int id)

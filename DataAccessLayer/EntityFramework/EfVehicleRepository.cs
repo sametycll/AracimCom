@@ -20,6 +20,13 @@ namespace DataAccessLayer.EntityFramework
                 return c.Vehicles.Include(x => x.Model.Series.Brand.Category).ToList();
             }
         }
+        public List<Vehicle> ListVehicleWithCategory(int id)
+        {
+            using (var c = new Context())
+            {
+                return c.Vehicles.Include(x => x.Model.Series.Brand.Category).Where(y=>y.Model.Series.Brand.CategoryID ==id).ToList();
+            }
+        }
 
         public List<Vehicle> ListVehicleWithCategoryUser(int id)
         {
@@ -38,12 +45,27 @@ namespace DataAccessLayer.EntityFramework
                 return y;
             }
         }
+        public List<Vehicle> ListVehicleWithBrand(int id)
+        {
+            using (var c = new Context())
+            {
+                var y = c.Vehicles.Include(x => x.Model.Series.Brand).Where(y=>y.Model.Series.BrandID ==id).ToList();
+                return y;
+            }
+        }
 
         public List<Vehicle> ListVehicleWithSeries()
         {
             using (var c = new Context())
             {
                 return c.Vehicles.Include(x => x.Model.Series).ToList();
+            }
+        }
+        public List<Vehicle> ListVehicleWithSeries(int id)
+        {
+            using (var c = new Context())
+            {
+                return c.Vehicles.Include(x => x.Model.Series).Where(y=>y.Model.SeriesID == id).ToList();
             }
         }
 
@@ -54,6 +76,15 @@ namespace DataAccessLayer.EntityFramework
                 return c.Vehicles.Include(x => x.Model).ToList();
             }
         }
+        public List<Vehicle> ListVehicleWithModel(int id)
+        {
+            using (var c = new Context())
+            {
+                return c.Vehicles.Include(x => x.Model).Where(y=>y.ModelID == id).ToList();
+            }
+        }
+
+
 
         public Vehicle ByModel(int id)
         {
