@@ -17,11 +17,11 @@ namespace AracimCom.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var userName = User.Identity.Name;
-            var _managerID = c.Managers.Where(x => x.Username == userName).Select(y => y.ManagerID).FirstOrDefault();
-            var id = mm.GetById(_managerID).ManagerID;
-            var userValues = mm.GetById(id);
-            return View(userValues);
+            //var userName = User.Identity.Name;
+            //var _managerID = c.Managers.Where(x => x.Username == userName).Select(y => y.ManagerID).FirstOrDefault();
+            //var id = mm.GetById(_managerID).ManagerID;
+            var managerValues = mm.GetById(1);
+            return View(managerValues);
         }
 
 
