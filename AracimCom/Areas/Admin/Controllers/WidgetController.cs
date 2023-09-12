@@ -1,5 +1,6 @@
 ﻿using DataAccessLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
+using System.Xml.Linq;
 
 namespace AracimCom.Areas.Admin.Controllers
 {
@@ -17,7 +18,12 @@ namespace AracimCom.Areas.Admin.Controllers
             ViewBag.user = c.Users.Count();
             ViewBag.message = c.Message2s.Count();
             ViewBag.notification = c.Notifications.Count();
+            string api = "ed7e4ffd1577e625d9215150e74d5298";
+            string connection = "https://api.openweathermap.org/data/2.5/weather?q=istanbul&mode=xml&lang=tr&units=metric&appid=" + api;
+            XDocument document= XDocument.Load(connection);
+            ViewBag.temperature = document.Descendants("temperature").ElementAt(0).Attribute("value").Value;
             return View();
         }
     }
 }
+ 
