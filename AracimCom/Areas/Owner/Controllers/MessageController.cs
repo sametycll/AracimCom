@@ -21,6 +21,7 @@ namespace AracimCom.Areas.Owner.Controllers
             var values = mm.GetInboxListByUser(id).ToPagedList(page, 5);
             return View(values);
         }
+
         public IActionResult DetailMessage(int id)
         {
             var value = mm.GetInboxByUserID(id);

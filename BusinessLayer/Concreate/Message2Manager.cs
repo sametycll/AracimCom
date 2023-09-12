@@ -50,5 +50,10 @@ namespace BusinessLayer.Concreate
         {
             return _messageDal.GetListByUserForMsgID(id);
         }
+
+        public List<Message2> GetListMessageAllWithUsers()
+        {
+            return _messageDal.ListMessageAllWithUsers();
+        }
     }
 }

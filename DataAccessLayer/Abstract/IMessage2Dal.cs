@@ -11,5 +11,6 @@ namespace DataAccessLayer.Abstract
     {
         List<Message2> GetListByUserForMsg(int id );
         Message2 GetListByUserForMsgID(int id);
+         List<Message2> ListMessageAllWithUsers();
     }
 }

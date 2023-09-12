@@ -9,9 +9,9 @@
 }
 
 
-<h2>Mesajlar <a href="~/Admin/Message/AddMessage" class="btn btn-primary" style="float:right;">Yeni Mesaj Ekle</a></h2>
+<h2>Mesajlar</h2>
 
-<table class="table table-bordered">
+<table class="table table-bordered" style="text-align:center;">
 <tr>
     <th>#</th>
     <th>Gönderen</th>
@@ -21,8 +21,7 @@
     <th>Mesaj Tarih</th> 
     <th>Durumu</th>  
     <th>Pasif Yap</th> 
-    <th>Aktif Yap</th>     
-    <th>Düzenle</th> 
+    <th>Aktif Yap</th> 
     <th>Sil</th>
 
 </tr>
@@ -30,8 +29,8 @@
     {
      <tr>
        <td style="font-weight: bold;">@x.MessageID</td>
-       <td>@x.SenderID</td>
-       <td>@x.ReceiverID</td>
+       <td>@x.SenderUser.UserName</td>
+       <td>@x.ReceiverUser.UserName</td>
        <td>@x.Subject</td>
        <td>@x.MessageDetails</td>    
        <td>@x.MessageDate.ToShortDateString()</td>   
@@ -46,9 +45,7 @@
 
            <td><a href="~/Admin/Message/PassiveMessage/@x.MessageID" onclick="return confirm('Pasif durumuna getirmek istediğinizden emin misiniz?')"  class="btn btn-danger">Pasif Yap</a></td>
            <td><a href="~/Admin/Message/ActiveMessage/@x.MessageID" onclick="return confirm('Aktif durumuna getirmek istediğinizden emin misiniz?')"  class="btn btn-success">Aktif Yap</a></td>
-
-         <td><a href="~/Admin/Message/UpdateMessage/@x.MessageID" class="btn btn-warning">Düzenle</a></td>
-         <td><a href="~/Admin/Message/UpdateMessage/@x.MessageID" class="btn btn-danger">Sil</a></td>
+           <td><a href="~/Admin/Message/DeleteMessage/@x.MessageID" class="btn btn-danger">Sil</a></td>
        </tr>   
     }
  </table>
