@@ -1,0 +1,67 @@
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+@using X.PagedList.Web.Common
+@model IEnumerable<EntitiyLayer.Concrete.Message2>
+
+@{
+  ViewData["Title"] = "Index";
+   Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<h2>Mesajlar <a href="~/Admin/Message/AddMessage" class="btn btn-primary" style="float:right;">Yeni Mesaj Ekle</a></h2>
+
+<table class="table table-bordered">
+<tr>
+    <th>#</th>
+    <th>Gönderen</th>
+    <th>Alıcı</th>
+    <th>Konu</th>
+    <th>Mesaj Detay</th>
+    <th>Mesaj Tarih</th> 
+    <th>Durumu</th>  
+    <th>Pasif Yap</th> 
+    <th>Aktif Yap</th>     
+    <th>Düzenle</th> 
+    <th>Sil</th>
+
+</tr>
+    @foreach (var x in Model)
+    {
+     <tr>
+       <td style="font-weight: bold;">@x.MessageID</td>
+       <td>@x.SenderID</td>
+       <td>@x.ReceiverID</td>
+       <td>@x.Subject</td>
+       <td>@x.MessageDetails</td>    
+       <td>@x.MessageDate.ToShortDateString()</td>   
+            @if (x.MessageStatus == true)
+            {
+              <td style="background-color:green; color:white">@x.MessageStatus</td>
+            }
+            else
+            {
+             <td style="background-color:red; color:white">@x.MessageStatus</td>
+            }
+
+           <td><a href="~/Admin/Message/PassiveMessage/@x.MessageID" onclick="return confirm('Pasif durumuna getirmek istediğinizden emin misiniz?')"  class="btn btn-danger">Pasif Yap</a></td>
+           <td><a href="~/Admin/Message/ActiveMessage/@x.MessageID" onclick="return confirm('Aktif durumuna getirmek istediğinizden emin misiniz?')"  class="btn btn-success">Aktif Yap</a></td>
+
+         <td><a href="~/Admin/Message/UpdateMessage/@x.MessageID" class="btn btn-warning">Düzenle</a></td>
+         <td><a href="~/Admin/Message/UpdateMessage/@x.MessageID" class="btn btn-danger">Sil</a></td>
+       </tr>   
+    }
+ </table>
+
+ <br />
+
+
+@Html.PagedListPager((IPagedList)Model, page=>Url.Action("Index", new{page = page}),
+      new PagedListRenderOptions(){
+
+         ContainerDivClasses=new[] {"navigation"},
+         LiElementClasses=new [] {"page-item"},
+         PageClasses =new[] {"page-link"},
+      })
+
+

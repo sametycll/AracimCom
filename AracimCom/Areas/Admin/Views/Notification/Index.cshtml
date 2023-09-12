@@ -1,0 +1,67 @@
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+@using X.PagedList.Web.Common
+@model IEnumerable<EntitiyLayer.Concrete.Notification>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Bildirimler <a href="~/Admin/Notification/AddNotification" class="btn btn-primary" style="float:right;">Yeni Bildirim Ekle</a></h2>
+
+<table class="table table-bordered">
+<tr>
+    <th>#</th>
+    <th>Bildirim Türü</th>
+    <th>Detaylar</th>
+    <th>Tarih</th>
+    <th>Renk</th>
+    <th>Sembol</th>
+    <th>Durumu</th>
+    <th>Pasif Yap</th>
+    <th>Aktif Yap</th>      
+    <th>Düzenle</th> 
+    <th>Sil</th>
+
+</tr>
+    @foreach (var x in Model)
+    {
+         <tr>
+           <td style="font-weight: bold;">@x.NotificationID</td>
+           <td>@x.NotificationType</td>
+           <td>@x.NotificationDetails</td>
+           <td>@x.NotificationDate.ToShortDateString()</td>
+           <td><p style="background-color:@x.NotificationColor; color:white; text-align:center;">@x.NotificationColor.ToUpper()</p></td>    
+           <td><i class="@x.NotificationTypeSymbol"></i></td>   
+            @if (x.NotificationStatus == true)
+            {
+            <td style="background-color:green; color:white">@x.NotificationStatus</td>
+            }
+            else
+            {
+            <td style="background-color:red; color:white">@x.NotificationStatus</td>
+            }
+
+          <td><a href="~/Admin/Notification/PassiveNotification/@x.NotificationID" onclick="return confirm('Pasif durumuna getirmek istediğinizden emin misiniz?')"  class="btn btn-danger">Pasif Yap</a></td>
+          <td><a href="~/Admin/Notification/ActiveNotification/@x.NotificationID" onclick="return confirm('Aktif durumuna getirmek istediğinizden emin misiniz?')"  class="btn btn-success">Aktif Yap</a></td>
+          <td><a href="~/Admin/Notification/UpdateNotification/@x.NotificationID" class="btn btn-warning">Düzenle</a></td>
+          <td><a href="~/Admin/Notification/DeleteNotification/@x.NotificationID" class="btn btn-danger">Sil</a></td>
+           </tr>   
+    }
+ </table>
+
+ <br />
+
+
+@Html.PagedListPager((IPagedList)Model, page=>Url.Action("Index", new{page = page}),
+      new PagedListRenderOptions(){
+
+         ContainerDivClasses=new[] {"navigation"},
+         LiElementClasses=new [] {"page-item"},
+         PageClasses =new[] {"page-link"},
+      })
+
+
+
+

@@ -1,0 +1,28 @@
+﻿@model EntitiyLayer.Concrete.User
+@{
+    ViewData["Title"] = "AddUser";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<h2>Yeni Kullanıcı Ekle</h2>
+@using (Html.BeginForm("AddUser", "Users", FormMethod.Post))
+{
+    @Html.Label("Ad Soyad")
+    @Html.TextBoxFor(x=>x.UserName, new{@class="form-control"})
+    @*@Html.ValidationMessageFor(x=>x.CategoryName,"" ,new {@class ="text-danger"})*@
+        <br />
+    @Html.Label("Mail")
+    @Html.TextBoxFor(x=>x.UserMail, new{@class="form-control"})
+    @*@Html.ValidationMessageFor(x=>x.CategoryDescription,"",new {@class ="text-danger"})*@
+        <br />
+    @Html.Label("Şifre")
+    @Html.TextBoxFor(x=>x.UserPassword, new{@class="form-control"})
+    <br />
+    @Html.Label("Telefon")
+    @Html.TextBoxFor(x=>x.UserPhone, new{@class="form-control"})
+        <br />
+    <button class="btn btn-info">Kullanıcıyı Kaydet</button>
+
+}
+

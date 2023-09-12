@@ -1,0 +1,58 @@
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+@using X.PagedList.Web.Common
+@model IEnumerable<EntitiyLayer.Concrete.User>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Kullanıcılar<a href="~/Admin/Users/AddUser" class="btn btn-primary" style="float:right;">Yeni Kullanıcı Ekle</a></h2>
+
+<table class="table table-bordered"  style="text-align:center;">
+<tr>
+    <th>#</th>
+    <th>Ad Soyad</th>
+    <th>Mail</th>
+    <th>Şifre</th>
+    <th>Telefon</th>
+    <th>Durum</th>
+    <th>Pasif Yap</th>
+    <th>Aktif Yap</th>
+    <th>Düzenle</th>    
+
+</tr>
+    @foreach (var x in Model)
+    {
+                <tr>
+                <td style="font-weight: bold;">@x.UserID</td>
+                <td>@x.UserName</td>
+                <td>@x.UserMail</td>
+                <td>@x.UserPassword</td>
+                <td>@x.UserPhone</td>
+            @if (x.UserStatus == true)
+            {
+                <td style="background-color:green; color:white">@x.UserStatus</td>
+            }
+            else
+            {
+             <td style="background-color:red; color:white">@x.UserStatus</td>
+            }
+
+          <td><a href="~/Admin/Users/PassiveUser/@x.UserID" onclick="return confirm('Pasif durumuna getirmek istediğinizden emin misiniz?')"  class="btn btn-danger">Pasif Yap</a></td>
+          <td><a href="~/Admin/Users/ActiveUser/@x.UserID" onclick="return confirm('Aktif durumuna getirmek istediğinizden emin misiniz?')"  class="btn btn-success">Aktif Yap</a></td>
+          <td><a href="~/Admin/Users/UpdateUser/@x.UserID" class="btn btn-warning">Düzenle</a></td>
+         </tr>   
+    }
+ </table>
+
+ <br />
+
+
+@Html.PagedListPager((IPagedList)Model, page=>Url.Action("Index", new{page = page}),
+      new PagedListRenderOptions(){
+
+         ContainerDivClasses=new[] {"navigation"},
+         LiElementClasses=new [] {"page-item"},
+         PageClasses =new[] {"page-link"},
+      })

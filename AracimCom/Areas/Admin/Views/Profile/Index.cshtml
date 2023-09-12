@@ -1,0 +1,30 @@
+﻿@model EntitiyLayer.Concrete.Manager
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("Index", "Profile", FormMethod.Post))
+{
+    @Html.HiddenFor(x=>x.ManagerID, new{@class="form-control", @readonly = true})
+
+    @Html.Label("Ad Soyad")
+    @Html.TextBoxFor(x=>x.Name, new{@class="form-control"})
+    @*@Html.ValidationMessageFor(x=>x.Name,"" ,new {@class ="text-danger"})*@
+        <br/>
+    @Html.Label("Kullanıcı Adı")
+    @Html.TextBoxFor(x=>x.Username, new{@class="form-control"})
+            <br/>
+    @Html.Label("Şifre")
+    @Html.TextBoxFor(x=>x.Password, new{@class="form-control"})
+                <br/>
+    @Html.Label("Rol")
+    @Html.TextBoxFor(x=>x.Role, new{@class="form-control"})
+        <br/>
+    
+
+               <button class="btn btn-info" >Bilgilerimi Düzenle</button> 
+
+}
+ <br/>
+
