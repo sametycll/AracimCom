@@ -30,7 +30,7 @@ namespace AracimCom.Controllers
                 var useridentity = new ClaimsIdentity(claims,"A");
                 ClaimsPrincipal principal = new ClaimsPrincipal(useridentity);
                 await HttpContext.SignInAsync(principal);                
-                return RedirectToAction("Category", "Admin");
+                return RedirectToAction("Widget", "Admin");
             }
             return View();
         }
