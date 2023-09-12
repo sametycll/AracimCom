@@ -1,0 +1,30 @@
+﻿@model EntitiyLayer.Concrete.Notification
+@{
+    ViewData["Title"] = "UpdateNotification";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Bildirim Güncelle</h2>
+@using (Html.BeginForm("UpdateNotification", "Notification", FormMethod.Post))
+{
+    @Html.Label("Bildirim ID")
+    @Html.TextBoxFor(x=>x.NotificationID, new{@class="form-control", @readonly = true})
+
+    @Html.Label("Türü")
+    @Html.TextBoxFor(x=>x.NotificationType, new{@class="form-control"})
+    @*@Html.ValidationMessageFor(x=>x.CategoryName,"" ,new {@class ="text-danger"})*@
+                <br />
+    @Html.Label("Detaylar")
+    @Html.TextBoxFor(x=>x.NotificationDetails, new{@class="form-control"})
+    @*@Html.ValidationMessageFor(x=>x.CategoryDescription,"",new {@class ="text-danger"})*@
+                <br />
+    @Html.Label("Sembol")
+    @Html.TextBoxFor(x=>x.NotificationTypeSymbol, new{@class="form-control"})
+            <br />
+    @Html.Label("Renk")
+    @Html.TextBoxFor(x=>x.NotificationColor, new{@class="form-control"})
+                <br />
+            <button class="btn btn-info">Bildirimi Kaydet</button>
+
+}
+

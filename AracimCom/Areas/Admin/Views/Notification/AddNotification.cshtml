@@ -1,0 +1,27 @@
+﻿@model EntitiyLayer.Concrete.Notification
+@{
+    ViewData["Title"] = "AddNotification";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Yeni Bildirim Ekle</h2>
+@using (Html.BeginForm("AddNotification", "Notification", FormMethod.Post))
+{
+    @Html.Label("Türü")
+    @Html.TextBoxFor(x=>x.NotificationType, new{@class="form-control"})
+    @*@Html.ValidationMessageFor(x=>x.CategoryName,"" ,new {@class ="text-danger"})*@
+            <br />
+    @Html.Label("Detaylar")
+    @Html.TextBoxFor(x=>x.NotificationDetails, new{@class="form-control"})
+    @*@Html.ValidationMessageFor(x=>x.CategoryDescription,"",new {@class ="text-danger"})*@
+            <br />
+    @Html.Label("Sembol")
+    @Html.TextBoxFor(x=>x.NotificationTypeSymbol, new{@class="form-control"})
+        <br />
+    @Html.Label("Renk")
+    @Html.TextBoxFor(x=>x.NotificationColor, new{@class="form-control"})
+            <br />
+        <button class="btn btn-info">Bildirimi Kaydet</button>
+
+}
+
