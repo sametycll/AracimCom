@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "YzbBjUK2y4mKoPXX6ObbXME/MrWMAHv6CqN1IFPfv5A=",
+  "Hash": "EMEXFWANfTZFejOq2Ie6natWCKwI59/iUZvNdfbdXAQ=",
   "Source": "AracimCom",
   "BasePath": "_content/AracimCom",
   "Mode": "Default",
@@ -41716,6 +41716,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Home\\images\\apps\\google-play-store.png"
+    },
+    {
+      "Identity": "C:\\Users\\samet\\OneDrive\\Belgeler\\C#\\AracimCom\\AracimCom\\wwwroot\\Home\\images\\blank.png",
+      "SourceId": "AracimCom",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\samet\\OneDrive\\Belgeler\\C#\\AracimCom\\AracimCom\\wwwroot\\",
+      "BasePath": "_content/AracimCom",
+      "RelativePath": "Home/images/blank.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Home\\images\\blank.png"
     },
     {
       "Identity": "C:\\Users\\samet\\OneDrive\\Belgeler\\C#\\AracimCom\\AracimCom\\wwwroot\\Home\\images\\blog\\post-1.jpg",

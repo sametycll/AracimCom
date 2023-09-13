@@ -1,0 +1,20 @@
+﻿@model EntitiyLayer.Concrete.User
+
+
+<div class="col-lg-4">
+        <div class="sidebar">
+          <!-- User Widget -->
+          <div class="widget user-dashboard-profile">
+            <!-- User Image -->
+            <div class="profile-thumb">
+              <img src="~/Home/images/blank.png" alt="" class="rounded-circle">
+            </div>
+            <!-- User Name -->
+            <h5 class="text-center">@Model.UserName</h5>
+            <p>@Model.UserMail</p>
+            <p>@Model.UserPhone</p>
+            <a href="user-profile.html" class="btn btn-main-sm">Mesaj Gönder</a>
+          </div>    
+      
+        </div>
+      </div>

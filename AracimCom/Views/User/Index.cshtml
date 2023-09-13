@@ -1,0 +1,75 @@
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+@using X.PagedList.Web.Common
+@model IEnumerable<EntitiyLayer.Concrete.Vehicle>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/HomeLayout.cshtml";
+}
+
+
+
+    <!-- Row Start -->
+    <div class="row">
+
+    @await Component.InvokeAsync("UserDetails",new {id=ViewBag.Id})
+
+
+      <div class="col-lg-8">
+        <!-- Recently Favorited -->
+        <div class="widget dashboard-container my-adslist">
+          <h1 class="widget-header">Araçlar</h1>
+
+          <table class="table table-responsive product-dashboard-table">
+            <thead>
+              <tr>
+                <th>Resim</th>
+                
+                <th class="text-center">Marka</th>
+                <th class="text-center">Model</th>
+                <th class="text-center">Yıl</th>
+                <th class="text-center">Km</th>
+                <th class="text-center">Renk</th>
+                <th class="text-center">Fiyat</th>
+              </tr>
+            </thead>
+
+            @foreach (var x in Model)
+                {
+                  
+                  <tbody>                      
+                  <tr>                     
+                    <td class="product-thumb">
+                     <a  href="~/Home/DetailVehicle/@x.VehicleID"><img width="80px" height="auto" src="~/VehicleThumbnailImageFiles/@x.VehicleThumbnailImage" alt="image description"> </a>
+                        </td>
+                    <td class="product-category"><span class="categories">@x.Model.Series.Brand.BrandName</span></td>                    
+                    <td class="product-category"><span class="categories">@x.Model.ModelName</span></td>
+                    <td class="product-category"><span class="categories">@x.VehicleYear</span></td>
+                    <td class="product-category"><span class="categories">@x.VehicleKm.ToString("000,000") KM</span></td>
+                    <td class="product-category"><span class="categories">@x.VehicleColor</span></td>
+                    <td class="product-category"><span class="categories">@x.VehiclePrice.ToString("000,000") TL</span></td>
+                    
+                  </tr>                     
+                </tbody>
+                   
+                }
+
+
+          </table>
+
+        </div>
+
+        <!-- pagination -->
+        @Html.PagedListPager((IPagedList)Model, page=>Url.Action("Index", new{page = page}),
+      new PagedListRenderOptions(){
+
+         ContainerDivClasses=new[] {"navigation"},
+         LiElementClasses=new [] {"page-item"},
+         PageClasses =new[] {"page-link"},
+      })
+        <!-- pagination -->
+
+      </div>
+    </div>
+    <!-- Row End -->
+
