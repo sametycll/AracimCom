@@ -1,3 +1,5 @@
+using DataAccessLayer.Concrete;
+using EntitiyLayer.Concrete;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
@@ -7,6 +9,18 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<Context>();
+builder.Services.AddIdentity<AppUser, AppRole>(x=>
+{
+    x.Password.RequiredUniqueChars = 0;
+    x.Password.RequireNonAlphanumeric = false;
+    x.Password.RequiredLength = 2;
+    x.Password.RequireUppercase = false;
+    x.Password.RequireDigit = false;
+    x.Password.RequireLowercase = false;    
+    
+}).AddEntityFrameworkStores<Context>();
+
 
 //authorization add
 builder.Services.AddMvc(config =>

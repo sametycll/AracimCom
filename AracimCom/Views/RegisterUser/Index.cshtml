@@ -1,0 +1,52 @@
+﻿@model UserSignUpViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/HomeLayout.cshtml";
+}
+
+<section class="login py-5 border-top-1">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-5 col-md-8 align-item-center">
+        <div class="border border">
+          <h1 class="bg-gray" style="text-align:center; font-weight:700; padding-top:7px;">Kayıt Ol</h1>
+                    @using (Html.BeginForm("Index", "RegisterUser", FormMethod.Post))
+                    {
+                        <fieldset class="p-4">
+                            @Html.Label("Adınız Soyadınız")
+                            @Html.TextBoxFor(x=>x.nameSurname,new{@class="form-control  mb-3"})
+                            @Html.ValidationMessageFor(x=>x.nameSurname,"" ,new {@class ="text-danger"})
+                            <br/>
+                            @Html.Label("Telefon Numaranız")
+                            @Html.TextBoxFor(x=>x.Phone,new{@class="form-control  mb-3"})
+                            @Html.ValidationMessageFor(x=>x.Phone,"" ,new {@class ="text-danger"})
+                                <br/>
+
+                            @Html.Label("Mail Adresiniz")
+                            @Html.TextBoxFor(x=>x.Mail,new{@class="form-control  mb-3"})
+                            @Html.ValidationMessageFor(x=>x.Mail,"" ,new {@class ="text-danger"})
+                                <br/>
+                            @Html.Label("Kullanıcı Adınız")
+                            @Html.TextBoxFor(x=>x.UserName,new{@class="form-control  mb-3"})
+                            @Html.ValidationMessageFor(x=>x.UserName,"" ,new {@class ="text-danger"})
+                                    <br/>
+                            @Html.Label("Şifreniz")
+                            @Html.TextBoxFor(x=>x.Password,new{@class="form-control  mb-3",@type="password"})
+                            @Html.ValidationMessageFor(x=>x.Password,"" ,new {@class ="text-danger"})
+                                <br/>
+                            @Html.Label("Tekrardan Şifreniz")
+                            @Html.TextBoxFor(x=>x.ConfirmPassword,new{@class="form-control  mb-3",@type="password"})
+                            @Html.ValidationMessageFor(x=>x.Password,"" ,new {@class ="text-danger"})
+                            <br/>
+                          <button type="submit" class="btn btn-primary font-weight-bold mt-3">Kayıt Ol</button>
+                          <div class="text-danger" asp-validation-summary="ModelOnly">
+
+                          </div>
+                        </fieldset>
+                    }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
